@@ -10,7 +10,7 @@
 
 ### Contributors
 
-Alejandro Garau Madrigal, Jesús Parejo Aliaga, Alejandro Megías Mata, Raúl Morales Perujo,
+Alejandro Garau Madrigal, Jesús Parejo Aliaga, Alejandro Megías Mata, Raúl Morales Perujo, Manuel Veredas Galdeano
 <<<<<<< HEAD
 <<<<<<< HEAD
 Mario, Pedro Gallego
