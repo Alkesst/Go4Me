@@ -12,4 +12,4 @@ Grupo 1:
   - Raúl Morales Perujo
   - Mario Garcés Martín 
   - Pedro Gallego Vela
-
+  - Manuel Veredas Galdeano
