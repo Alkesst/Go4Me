@@ -4,4 +4,7 @@
 ### Contributors
 
 Alejandro Garau Madrigal, Jesús Parejo Aliaga, Alejandro Megías Mata, Raúl Morales Perujo,
-Mario, Pedro Gallego
+Mario Garcés Martín, Pedro Gallego Vela
+
+# Why Go4Me?
+Porque sirve bastante bien y mola muchísimo la verdad
