@@ -12,8 +12,12 @@
 
 Alejandro Garau Madrigal, Jesús Parejo Aliaga, Alejandro Megías Mata, Raúl Morales Perujo,
 <<<<<<< HEAD
+<<<<<<< HEAD
 Mario, Pedro Gallego
 
+=======
+Mario, Pedro Gallego Vela
+>>>>>>> 4356d613809e9faa9852a663886f7597fdf097d1
 =======
 Mario Garcés Martín, Pedro Gallego Vela
 
