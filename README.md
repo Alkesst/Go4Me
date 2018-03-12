@@ -1,6 +1,5 @@
 # Go4Me
 ```A WebApp for lazy people```
-<<<<<<< HEAD
 
 ### Contributors
 
