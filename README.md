@@ -1,5 +1,8 @@
 # Go4Me
-```A WebApp for lazy people```
+
+```A WebApp for lazy people (or handicapped people)```
+
+
 
 ### Contributors
 
