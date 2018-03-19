@@ -8,7 +8,7 @@
 Grupo 1:
   - Alejandro Garau Madrigal
   - Jesús Parejo Aliaga
-  - Alejandro Megías Mata 
+  - Alejandro Megias Mata 
   - Raúl Morales Perujo
   - Mario Garcés Martín 
   - Pedro Gallego Vela
