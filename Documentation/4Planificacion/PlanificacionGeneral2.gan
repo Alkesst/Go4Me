@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Go4Me" company="Go4Me" webLink="http://" view-date="2018-04-02" view-index="0" gantt-divider-location="439" resource-divider-location="300" version="2.8.6" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Go4Me" company="Go4Me" webLink="http://" view-date="2018-04-16" view-index="0" gantt-divider-location="439" resource-divider-location="300" version="2.8.6" locale="en_GB">
     <description/>
     <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="228" order="0"/>
         <field id="tpd4" name="Begin date" width="103" order="1"/>
         <field id="tpd5" name="End date" width="102" order="2"/>
-        <option id="color.recent"><![CDATA[#ffff00 #ff0000 #ff3333 #00ffcc #990099 #99ffff #cc00cc #00cccc #0000cc #ff0066]]></option>
+        <option id="color.recent"><![CDATA[#0000ff #ff0033 #eeeeee #ffff00 #cc0033 #ff0000 #ff3333 #00ffcc #990099 #99ffff]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="209" order="0"/>
@@ -39,11 +39,43 @@
         </task>
         <task id="2" name="Modelado Y Patrones" color="#00ffcc" meeting="false" start="2018-04-09" duration="7" complete="0" thirdDate="2018-04-09" thirdDate-constraint="0" expand="true">
             <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+            <depend id="45" type="2" difference="0" hardness="Strong"/>
+            <depend id="50" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="7" name="Implementación" color="#ff3333" meeting="false" start="2018-04-18" duration="25" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
             <depend id="8" type="2" difference="0" hardness="Strong"/>
             <depend id="14" type="2" difference="0" hardness="Strong"/>
         </task>
+        <task id="19" name="Chat usuarios" color="#ffff00" meeting="false" start="2018-04-18" duration="5" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="39" name="valoración entre usuarios" color="#ff0033" meeting="false" start="2018-05-02" duration="5" complete="0" thirdDate="2018-05-02" thirdDate-constraint="0" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="22" name="método para buscar personas" color="#ff0033" meeting="false" start="2018-04-18" duration="10" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="45" name="tipos de usuario" color="#ff0033" meeting="false" start="2018-04-18" duration="5" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Usuarios premium y usuarios normales
+]]></notes>
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="25" name="metodo de pago por paypal" color="#ffff00" meeting="false" start="2018-04-18" duration="5" complete="0" thirdDate="2018-04-09" thirdDate-constraint="0" expand="true">
+            <depend id="28" type="2" difference="0" hardness="Strong"/>
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="28" name="verificación de compra" color="#ffff00" meeting="false" start="2018-04-25" duration="5" complete="0" thirdDate="2018-04-25" thirdDate-constraint="0" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+            <depend id="39" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="27" name="filtro de búsqueda" color="#ff0000" meeting="false" start="2018-05-02" duration="5" complete="0" thirdDate="2018-05-01" thirdDate-constraint="0" expand="true">
+            <depend id="31" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="50" name="compartir con twitter" color="#0000ff" meeting="false" start="2018-04-18" duration="1" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true"/>
+        <task id="31" name="estilo con sass, css y bootstrap" color="#ffff00" meeting="false" start="2018-05-09" duration="5" complete="0" thirdDate="2018-05-09" thirdDate-constraint="0" expand="true"/>
         <task id="8" name="Prueba" color="#ffff00" meeting="false" start="2018-05-23" duration="19" complete="0" thirdDate="2018-05-23" thirdDate-constraint="0" expand="true"/>
         <task id="14" name="Presentación" color="#ff0000" meeting="false" start="2018-05-23" duration="7" complete="0" thirdDate="2018-05-23" thirdDate-constraint="0" expand="true">
             <depend id="18" type="2" difference="0" hardness="Strong"/>
