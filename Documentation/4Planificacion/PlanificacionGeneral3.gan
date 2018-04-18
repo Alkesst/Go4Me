@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Go4Me" company="Go4Me" webLink="http://" view-date="2018-03-26" view-index="0" gantt-divider-location="528" resource-divider-location="300" version="2.8.6" locale="es">
+    <description/>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="259" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="133" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="132" order="2"/>
+        <option id="color.recent"><![CDATA[#ff0033 #ffff00 #0000ff #eeeeee #cc0033 #ff0000 #ff3333 #00ffcc #990099 #99ffff]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Documentación" color="#990099" meeting="false" start="2018-03-05" duration="25" complete="0" thirdDate="2018-03-01" thirdDate-constraint="0" expand="true">
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" name="Modelado Y Patrones" color="#00ffcc" meeting="false" start="2018-04-09" duration="7" complete="0" thirdDate="2018-04-09" thirdDate-constraint="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="19" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Implementación" color="#ff3333" meeting="false" start="2018-04-18" duration="32" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="14" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="19" name="Funcionalidades de los pedidos" color="#ffff00" meeting="false" start="2018-04-18" duration="5" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <depend id="22" type="2" difference="0" hardness="Strong"/>
+            <depend id="25" type="2" difference="0" hardness="Strong"/>
+            <depend id="28" type="2" difference="0" hardness="Strong"/>
+            <depend id="39" type="2" difference="0" hardness="Strong"/>
+            <depend id="45" type="2" difference="0" hardness="Strong"/>
+            <depend id="50" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="39" name="valoración entre usuarios" color="#ff0033" meeting="false" start="2018-04-25" duration="5" complete="0" thirdDate="2018-05-18" thirdDate-constraint="0" expand="true"/>
+        <task id="22" name="método para buscar personas" color="#ffff00" meeting="false" start="2018-04-25" duration="10" complete="0" thirdDate="2018-04-25" thirdDate-constraint="0" expand="true">
+            <depend id="27" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="45" name="tipos de usuario" color="#ff0033" meeting="false" start="2018-04-25" duration="5" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Usuarios premium y usuarios normales
+]]></notes>
+        </task>
+        <task id="25" name="metodo de pago por paypal" color="#ffff00" meeting="false" start="2018-04-25" duration="5" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true"/>
+        <task id="28" name="verificación de compra" color="#ff0033" meeting="false" start="2018-04-25" duration="5" complete="0" thirdDate="2018-05-11" thirdDate-constraint="0" expand="true"/>
+        <task id="27" name="filtro de búsqueda" color="#ffff00" meeting="false" start="2018-05-09" duration="5" complete="0" thirdDate="2018-04-25" thirdDate-constraint="0" expand="true"/>
+        <task id="50" name="compartir con twitter" color="#0000ff" meeting="false" start="2018-04-25" duration="1" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true"/>
+        <task id="31" name="estilo con sass, css y bootstrap" color="#ff0033" meeting="false" start="2018-05-25" duration="5" complete="0" thirdDate="2018-05-25" thirdDate-constraint="0" expand="true">
+            <depend id="51" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="51" name="Funcionalidades adicionales" color="#ffff00" meeting="false" start="2018-06-01" duration="5" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true"/>
+        <task id="8" name="Prueba" color="#ff0033" meeting="false" start="2018-06-01" duration="19" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Presentación" color="#ffff00" meeting="false" start="2018-06-01" duration="7" complete="0" thirdDate="2018-06-01" thirdDate-constraint="0" expand="true">
+            <depend id="18" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="18" name="Resultados" color="#ff0033" meeting="false" start="2018-06-12" duration="3" complete="0" thirdDate="2018-06-12" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
