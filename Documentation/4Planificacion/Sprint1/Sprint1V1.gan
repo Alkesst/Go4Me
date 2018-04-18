@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-04-17" view-index="0" gantt-divider-location="439" resource-divider-location="300" version="2.8.6" locale="en_GB">
+    <description/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Name" width="280" order="0"/>
+        <field id="tpd4" name="Begin date" width="66" order="1"/>
+        <field id="tpd5" name="End date" width="87" order="2"/>
+        <option id="color.recent"><![CDATA[#ffff00 #ff0033 #ff0000 #990033 #0000ff #eeeeee #cc0033 #ff3333 #00ffcc #990099]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="209" order="0"/>
+        <field id="1" name="Default role" width="85" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Terminar Documentación del Modelo" color="#ff0000" meeting="false" start="2018-04-18" duration="4" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true">
+            <depend id="4" type="2" difference="0" hardness="Strong"/>
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="4" name="Implementación de la clase Usuario" color="#ffff00" meeting="false" start="2018-04-24" duration="6" complete="0" thirdDate="2018-04-24" thirdDate-constraint="0" expand="true"/>
+        <task id="10" name="Funcionalidades de Pedidos" color="#ff0033" meeting="false" start="2018-04-24" duration="6" complete="0" thirdDate="2018-04-24" thirdDate-constraint="0" expand="true"/>
+        <task id="2" name="Diagrama de Secuencia" color="#ffff00" meeting="false" start="2018-04-18" duration="4" complete="0" thirdDate="2018-04-18" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
