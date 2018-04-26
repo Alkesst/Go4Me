@@ -1,11 +1,19 @@
 package com.go4me.prototype.model;
 
 
+import com.google.maps.GeoApiContext;
+import com.google.maps.errors.ApiException;
+import com.google.maps.model.GeocodingResult;
+import com.google.maps.model.LatLng;
+
 import javax.persistence.*;
 import java.util.Objects;
+import java.io.IOException;
 
 @Entity
 public class Localization {
+    private static final String API_KEY = "AIzaSyBGSymDT45SwboBEgG_D53iAFhDurwGlww";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -31,10 +39,16 @@ public class Localization {
     public Localization(){}
 
     public Localization(String address1, String city, String country, int zipCode) {
+        LatLng coord;
         this.address1 = address1;
         this.city = city;
         this.country = country;
         this.zipCode = zipCode;
+        coord = getCoordinates(address1);
+        if(coord != null){
+            this.latitude = coord.lat;
+            this.longitude = coord.lng;
+        }
     }
 
     public Long getId(){
@@ -129,5 +143,18 @@ public class Localization {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 '}';
+    private static LatLng getCoordinates(String address){
+        GeoApiContext context = new GeoApiContext.Builder()
+                .apiKey(API_KEY)
+                .build();
+        GeocodingResult[] results;
+        try {
+            results = com.google.maps.GeocodingApi.geocode(context,
+                    address).await();
+            return results[0].geometry.location;
+        } catch (ApiException | InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
