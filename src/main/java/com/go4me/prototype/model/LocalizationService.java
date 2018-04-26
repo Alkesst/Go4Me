@@ -19,14 +19,14 @@ public class LocalizationService {
 
     // Distance in Kilometers(Km)
     public double distanceBetweenBothUsers(double latitudeA, double longitudeA, double latitudeB, double longitudeB){
-        double distance, latitudeDiference, longitudDiference;
+        double distance, latitudeDifference, longitudeDifference;
 
-        latitudeDiference = radiansConversion(latitudeA - latitudeB);
-        longitudDiference = radiansConversion(longitudeA - longitudeB);
-        distance = Math.pow(Math.sin(latitudeDiference/2),2) +
+        latitudeDifference = radiansConversion(latitudeA - latitudeB);
+        longitudeDifference = radiansConversion(longitudeA - longitudeB);
+        distance = Math.pow(Math.sin(latitudeDifference/2),2) +
                 Math.cos(radiansConversion(latitudeA)) *
                 Math.cos(radiansConversion(latitudeB)) *
-                Math.pow(Math.sin(longitudDiference/2),2);
+                Math.pow(Math.sin(longitudeDifference/2),2);
         distance = 2 * Math.atan2(Math.sqrt(distance), Math.sqrt(1-distance));
 
         return distance * EARTH_RADIUS; // Result in Kilometers(Km)

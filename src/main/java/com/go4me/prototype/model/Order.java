@@ -6,75 +6,100 @@ import java.util.*;
 @Entity
 public class Order{
 
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-@Column(nullable=false)
-private Date maxTime;
+    @Column(nullable=false)
+    private Date maxTime;
 
-@Column(nullable=false)
-private User publishedBy;
+    @Column(nullable=false)
+    private User publishedBy;
 
-@Column(nullable=false)
-private String description;
+    @Column(nullable=false)
+    private String description;
 
-@Column(nullable=false)
-private double maxCost;
+    @Column(nullable=false)
+    private double maxCost;
 
-public Order (){
+    @Column(nullable = false)
+    private User buyer;
 
-}
+    @Column(nullable = false)
+    private User seller;
 
-public Order(Long OrderId){
-  this.id = OrderId;
-}
+    private boolean verifiedByBuyer;
+    private boolean verifiedBySeller;
 
-public Order (User publishedBy, String description, double maxCost){
-  this.publishedBy=publishedBy;
-  this.description=description;
-  this.maxCost=maxCost;
-}
+    public Order (){
 
-public void setId(Long id) {
-  this.id = id;
-}
+    }
 
-public void setMaxTime(Date maxTime){
-  this.maxTime = maxTime;
-}
+    public Order(Long OrderId){
+        this.id = OrderId;
+    }
 
-public void setPublishedBy (User publishedBy){
-this.publishedBy = publishedBy;
-}
+    public Order (User publishedBy, String description, double maxCost){
+        this.publishedBy=publishedBy;
+        this.description=description;
+        this.maxCost=maxCost;
+    }
 
-public void setDescription (String description){
-this.description = description;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public void setMaxCost(double maxCost){
-this.maxCost = maxCost;
-}
+    public void setMaxTime(Date maxTime){
+        this.maxTime = maxTime;
+    }
 
-public Long getID(){
-  return id;
-}
+    public void setPublishedBy (User publishedBy){
+        this.publishedBy = publishedBy;
+    }
 
-public Date getMaxTime(){
-  return maxTime;
-}
+    public void setDescription (String description){
+        this.description = description;
+    }
 
-public User getPublishedBy(){
-  return publishedBy;
-}
+    public void setMaxCost(double maxCost){
+        this.maxCost = maxCost;
+    }
 
-public String getDescription(){
-  return description;
-}
+    public Long getID(){
+        return id;
+    }
 
-public double getMaxCost(){
-  return maxCost;
-}
+    public Date getMaxTime(){
+        return maxTime;
+    }
+
+    public User getPublishedBy(){
+        return publishedBy;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public double getMaxCost(){
+        return maxCost;
+    }
+
+    public void setBuyer(User buyer) { this.buyer = buyer; }
+
+    public void setSeller(User seller) { this.seller = seller; }
+
+    public User getBuyer() { return buyer; }
+
+    public User getSeller() { return seller; }
+
+    public boolean isVerifiedByBuyer() { return verifiedByBuyer; }
+
+    public boolean isVerifiedBySeller() { return verifiedBySeller; }
+
+    public void setVerifiedByBuyer(boolean verifiedByBuyer) { this.verifiedByBuyer = verifiedByBuyer; }
+
+    public void setVerifiedBySeller(boolean verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
 
     @Override
     public boolean equals(Object o) {
@@ -95,10 +120,15 @@ public double getMaxCost(){
     @Override
     public String toString() {
         return "Order{" +
-                "maxTime=" + maxTime +
+                "id=" + id +
+                ", maxTime=" + maxTime +
                 ", publishedBy=" + publishedBy +
                 ", description='" + description + '\'' +
                 ", maxCost=" + maxCost +
+                ", buyer=" + buyer +
+                ", seller=" + seller +
+                ", verifiedByBuyer=" + verifiedByBuyer +
+                ", verifiedBySeller=" + verifiedBySeller +
                 '}';
     }
 }
