@@ -32,5 +32,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
+    compile 'com.google.maps:google-maps-services:0.2.7'
+    compile 'org.slf4j:slf4j-nop:1.7.25'
     testCompile("junit:junit")
 }
