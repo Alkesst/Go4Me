@@ -143,7 +143,10 @@ public class Localization {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 '}';
+    }
+
     private static LatLng getCoordinates(String address){
+        // Adaptation from the code example in https://github.com/googlemaps/google-maps-services-java
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey(API_KEY)
                 .build();
