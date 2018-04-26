@@ -9,7 +9,7 @@ public class OrderService{
   OrderRepository repository;
 
   public void update(Order order){
-    Order o = repository.getOne(order.getId());
+    Order o = repository.getOne(order.getID());
 
     o.setMaxTime(order.getMaxTime());
     o.setPublishedBy(order.getPublishedBy());
@@ -41,7 +41,7 @@ public class OrderService{
   }
 
   public void delete(Order order){
-    repository.deleteById(order.getId());
+    repository.deleteById(order.getID());
   }
 
   public Order searchByPublishedBy (User user){
