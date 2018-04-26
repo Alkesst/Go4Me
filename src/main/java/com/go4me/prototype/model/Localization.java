@@ -2,6 +2,7 @@ package com.go4me.prototype.model;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Localization {
@@ -100,12 +101,33 @@ public class Localization {
         this.longitude = longitude;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    //TODO Este método debe realizarse con la colaboración de los integrantes del grupo en la proxima reunion
-    public void searchOrderLocation(double longitude, double latitude){
-
+        Localization that = (Localization) o;
+        return zipCode == that.zipCode &&
+                Objects.equals(address1, that.address1) &&
+                Objects.equals(city, that.city) &&
+                Objects.equals(country, that.country);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(address1, city, country, zipCode);
+    }
 
-
+    @Override
+    public String toString() {
+        return "Localization{" +
+                "address1='" + address1 + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", zipCode=" + zipCode +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
+    }
 }
