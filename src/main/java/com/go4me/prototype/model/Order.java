@@ -105,7 +105,7 @@ public class Order{
 
     public void setVerifiedBySeller(boolean verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
 
-    private void setTimeOut(bool timeout){
+    private void setTimeOut(boolean timeout){
       this.timeout = timeout;
     }
 
