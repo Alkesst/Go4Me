@@ -109,6 +109,14 @@ public class Order{
       this.timeout = timeout;
     }
 
+    private void checkTimeOut(){
+      LocalDateTime now = LocalDateTime.now();
+      Date sysdate = new Date(now.getYear(), now.getMonth(), now.getDay(), now.getHour(), now.getMinute());
+      if(compare(maxTime,sysdate) >= 0){
+        setTimeOut(true);
+      }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
