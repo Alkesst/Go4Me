@@ -1,5 +1,7 @@
 public class Date {
 
+  private int minute;
+  private int hour;
   private int day;
   private int month;
   private int year;
@@ -17,7 +19,34 @@ public class Date {
       monthString = "0" + Integer.toString(month);
     }
 
-    return dayString + "/" + monthString + "/" + Integer.toString(year);
+    return dayString + "/" + monthString + "/" + Integer.toString(year) + " " + Integer.toString(hour) + ":" + Integer.toString(minute);
+  }
+
+  public int compare(Date d1, Date d2){
+    if(d1.getYear() > d2.getYear()){ return 1; }
+    else if(d1.getYear() < d2.getYear()){ return -1; }
+
+    if(d1.getMonth() > d2.getMonth()){ return 1; }
+    else if(d1.getMonth() < d2.getMonth()){ return -1; }
+
+    if(d1.getDay() > d2.getDay()){ return 1; }
+    else if(d1.getDay() < d2.getDay()){ return -1; }
+
+    if(d1.getHour() > d2.getHour()){ return 1; }
+    else if(d1.getHour() < d2.getHour()){ return -1; }
+
+    if(d1.getMinute() > d2.getMinute()){ return 1; }
+    else if(d1.getMinute() < d2.getMinute()){ return -1; }
+
+    return 0;
+  }
+
+  public void setMinute(int m){
+      minute = m;
+  }
+
+  public void setHour(int h){
+    hour = h;
   }
 
   public void setDay(int d){
@@ -30,6 +59,14 @@ public class Date {
 
   public void setYear(int y){
     year = y;
+  }
+
+  public int getMinute(){
+    return minute;
+  }
+
+  public int getHour(){
+    return hour;
   }
 
   public int getDay(){
@@ -50,5 +87,15 @@ public class Date {
       day = d;
       month = m;
       year = y;
+      hour = 0;
+      minute = 0;
+  }
+
+  public Date(int d, int m,int y,int h,int mi){
+      day = d;
+      month = m;
+      year = y;
+      hour = h;
+      minute = mi;
   }
 }

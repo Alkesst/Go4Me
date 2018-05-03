@@ -28,15 +28,19 @@ public class Order{
     @Column(nullable = false)
     private User seller;
 
+    @Column(nullable = false)
+    private boolean timeout;
+
     private boolean verifiedByBuyer;
     private boolean verifiedBySeller;
 
     public Order (){
-
+        this.timeout = false;
     }
 
     public Order(Long OrderId){
         this.id = OrderId;
+        this.timeout = false;
     }
 
     public Order (User publishedBy, String description, double maxCost){
@@ -101,6 +105,10 @@ public class Order{
 
     public void setVerifiedBySeller(boolean verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
 
+    private void setTimeOut(bool timeout){
+      this.timeout = timeout;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,3 +140,21 @@ public class Order{
                 '}';
     }
 }
+
+/*===================================================================
+class TimeoutChecker extends Thread {
+  public void run(){
+
+    while(true){
+      LocalDateTime now = LocalDateTime.now();
+      Date sysdate = new Date(now.getYear(), now.getMonth(), now.getDay(), now.getHour(), now.getMinute());
+      if(compare(maxTime,sysdate) >= 0){
+        setTimeOut(true);
+        Thread.stop();
+      }
+      Thread.sleep(60000)
+    }
+
+  }
+}
+*/ //================================================================
