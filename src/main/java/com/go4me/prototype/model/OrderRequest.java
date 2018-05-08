@@ -52,6 +52,16 @@ public class OrderRequest {
         this.maxCost=maxCost;
     }
 
+    public OrderRequest(AdsOrder ao){
+      this.publishedBy = ao.getPublishedBy();
+      this.description = ao.getDescription();
+      this.maxCost = ao.getMaxCost();
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setMaxTime(Date maxTime){
         this.maxTime = maxTime;
     }
