@@ -22,7 +22,7 @@ public class Date {
     return dayString + "/" + monthString + "/" + Integer.toString(year) + " " + Integer.toString(hour) + ":" + Integer.toString(minute);
   }
 
-  public int compare(Date d1, Date d2){
+  public int compare(Date d1, Date d2){ //returns 1 if d1 > d2, -1 if d1 < d2 and 0 if d1 == d2
     if(d1.getYear() > d2.getYear()){ return 1; }
     else if(d1.getYear() < d2.getYear()){ return -1; }
 

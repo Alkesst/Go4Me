@@ -49,6 +49,12 @@ public class Order{
         this.maxCost=maxCost;
     }
 
+    public Order(AdsOrder ao){
+      this.publishedBy = ao.getPublishedBy();
+      this.description = ao.getDescription();
+      this.maxCost = ao.getMaxCost();
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
