@@ -8,13 +8,13 @@ public class OrderService{
   @Autowired
   OrderRepository repository;
 
-  public void update(Order order){
-    Order o = repository.getOne(order.getID());
+  public void update(OrderRequest orderRequest){
+    OrderRequest o = repository.getOne(orderRequest.getID());
 
-    o.setMaxTime(order.getMaxTime());
-    o.setPublishedBy(order.getPublishedBy());
-    o.setDescription(order.getDescription());
-    o.setMaxCost(order.getMaxCost());
+    o.setMaxTime(orderRequest.getMaxTime());
+    o.setPublishedBy(orderRequest.getPublishedBy());
+    o.setDescription(orderRequest.getDescription());
+    o.setMaxCost(orderRequest.getMaxCost());
 
     repository.saveAndFlush(o);
   }
@@ -36,19 +36,19 @@ public class OrderService{
   }
   */
 
-  public void add(Order order){
-    repository.saveAndFlush(order);
+  public void add(OrderRequest orderRequest){
+    repository.saveAndFlush(orderRequest);
   }
 
-  public void delete(Order order){
-    repository.deleteById(order.getID());
+  public void delete(OrderRequest orderRequest){
+    repository.deleteById(orderRequest.getID());
   }
 
-  public Order searchByPublishedBy (User user){
+  public OrderRequest searchByPublishedBy (User user){
     return repository.findByPublishedBy(user);
   }
 
-  public Order getOrderById(long id){
+  public OrderRequest getOrderById(long id){
     return repository.getOne(id);
   }
 }

@@ -1,10 +1,11 @@
 package com.go4me.prototype.model;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Date;
+import java.util.Objects;
 
 @Entity
-public class Order{
+public class OrderRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,7 +14,7 @@ public class Order{
     @Column(nullable=false)
     private Date maxTime;
 
-    @Column(nullable=false)
+    @ManyToOne
     private User publishedBy;
 
     @Column(nullable=false)
@@ -22,35 +23,33 @@ public class Order{
     @Column(nullable=false)
     private double maxCost;
 
-    @Column(nullable = false)
+    @ManyToOne
     private User buyer;
 
-    @Column(nullable = false)
+    @ManyToOne
     private User seller;
 
     @Column(nullable = false)
-    private boolean timeout;
+    private int timeout;
 
-    private boolean verifiedByBuyer;
-    private boolean verifiedBySeller;
+    @Column
+    private int verifiedByBuyer;
+    @Column
+    private int verifiedBySeller;
 
-    public Order (){
-        this.timeout = false;
+    public OrderRequest(){
+        this.timeout = 0;
     }
 
-    public Order(Long OrderId){
+    public OrderRequest(Long OrderId){
         this.id = OrderId;
-        this.timeout = false;
+        this.timeout = 0;
     }
 
-    public Order (User publishedBy, String description, double maxCost){
+    public OrderRequest(User publishedBy, String description, double maxCost){
         this.publishedBy=publishedBy;
         this.description=description;
         this.maxCost=maxCost;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void setMaxTime(Date maxTime){
@@ -97,35 +96,36 @@ public class Order{
 
     public User getSeller() { return seller; }
 
-    public boolean isVerifiedByBuyer() { return verifiedByBuyer; }
+    public int isVerifiedByBuyer() { return verifiedByBuyer; }
 
-    public boolean isVerifiedBySeller() { return verifiedBySeller; }
+    public int isVerifiedBySeller() { return verifiedBySeller; }
 
-    public void setVerifiedByBuyer(boolean verifiedByBuyer) { this.verifiedByBuyer = verifiedByBuyer; }
+    public void setVerifiedByBuyer(int verifiedByBuyer) { this.verifiedByBuyer = verifiedByBuyer; }
 
-    public void setVerifiedBySeller(boolean verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
+    public void setVerifiedBySeller(int verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
 
-    private void setTimeOut(boolean timeout){
+    private void setTimeOut(int timeout){
       this.timeout = timeout;
     }
 
-    private void checkTimeOut(){
+    /*private void checkTimeOut(){
+        // TODO está mal
       LocalDateTime now = LocalDateTime.now();
       Date sysdate = new Date(now.getYear(), now.getMonth(), now.getDay(), now.getHour(), now.getMinute());
-      if(compare(maxTime,sysdate) >= 0){
-        setTimeOut(true);
+      if(maxTime.compare(sysdate) >= 0){
+        setTimeOut(1);
       }
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return Double.compare(order.maxCost, maxCost) == 0 &&
-                Objects.equals(maxTime, order.maxTime) &&
-                Objects.equals(publishedBy, order.publishedBy) &&
-                Objects.equals(description, order.description);
+        OrderRequest orderRequest = (OrderRequest) o;
+        return Double.compare(orderRequest.maxCost, maxCost) == 0 &&
+                Objects.equals(maxTime, orderRequest.maxTime) &&
+                Objects.equals(publishedBy, orderRequest.publishedBy) &&
+                Objects.equals(description, orderRequest.description);
     }
 
     @Override
@@ -135,7 +135,7 @@ public class Order{
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderRequest{" +
                 "id=" + id +
                 ", maxTime=" + maxTime +
                 ", publishedBy=" + publishedBy +

@@ -15,7 +15,7 @@ public class User {
     private Double rating;
 
     @Column(nullable = false)
-    private boolean isPremium;
+    private int isPremium;
 
     @Column(unique=true, nullable = false)
     private String userName;
@@ -23,29 +23,46 @@ public class User {
     @Column(unique=true, nullable=false)
     private String email;
 
+    @OneToMany
     private List<User> blockedUsers;
-    private boolean isBanned;
+
+    @Column
+    private int isBanned;
 
     @Column(unique=true)
     private String twitterAccount;
 
+    @OneToOne(cascade=CascadeType.ALL)
     private Localization localization;
 
-    /*TODO ADD PUBLISHED ORDERS AND ADS ORDER VARIABLES*/
+    @OneToMany
+    private List<OrderRequest> publishedOrderRequests;
 
+    // TODO ADD @OneToMany private List<AdsOrder> publishedAds;
 
 
     public User() {
-
+        isPremium = 0;
+        isBanned = 0;
     }
 
     public User(Long userId) { this.id = userId; }
 
-    public void setId(Long id) {
-        this.id = id;
+    public User(Double rating, int isPremium, String userName, String email,
+                List<User> blockedUsers, int isBanned, String twitterAccount,
+                Localization localization, List<OrderRequest> publishedOrderRequests) {
+        this.rating = rating;
+        this.isPremium = isPremium;
+        this.userName = userName;
+        this.email = email;
+        this.blockedUsers = blockedUsers;
+        this.isBanned = isBanned;
+        this.twitterAccount = twitterAccount;
+        this.localization = localization;
+        this.publishedOrderRequests = publishedOrderRequests;
     }
 
-    public void setPremium(boolean premium) {
+    public void setPremium(int premium) {
         isPremium = premium;
     }
 
@@ -61,7 +78,7 @@ public class User {
         this.blockedUsers = blockedUsers;
     }
 
-    public void setBanned(boolean banned) {
+    public void setBanned(int banned) {
         isBanned = banned;
     }
 
@@ -73,7 +90,7 @@ public class User {
         return id;
     }
 
-    public boolean isPremium() {
+    public int isPremium() {
         return isPremium;
     }
 
@@ -89,7 +106,7 @@ public class User {
         return blockedUsers;
     }
 
-    public boolean isBanned() {
+    public int isBanned() {
         return isBanned;
     }
 

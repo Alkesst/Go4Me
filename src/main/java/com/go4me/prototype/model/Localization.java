@@ -1,14 +1,14 @@
 package com.go4me.prototype.model;
 
 
+/* TODO ISSUE #28
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
-import com.google.maps.model.LatLng;
+import com.google.maps.model.LatLng;*/
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.io.IOException;
 
 @Entity
 public class Localization {
@@ -32,23 +32,26 @@ public class Localization {
     @Column(nullable = false)
     private int zipCode;
 
+    @Column
     private double latitude;
 
+    @Column
     private double longitude;
 
     public Localization(){}
 
     public Localization(String address1, String city, String country, int zipCode) {
-        LatLng coord;
+        // TODO ISSUE #28 -> LatLng coord;
         this.address1 = address1;
         this.city = city;
         this.country = country;
         this.zipCode = zipCode;
+        /* TODO ISSUE #28
         coord = getCoordinates(address1);
         if(coord != null){
             this.latitude = coord.lat;
             this.longitude = coord.lng;
-        }
+        }*/
     }
 
     public Long getId(){
@@ -145,6 +148,7 @@ public class Localization {
                 '}';
     }
 
+    /* TODO ISSUE #28
     private static LatLng getCoordinates(String address){
         // Adaptation from the code example in https://github.com/googlemaps/google-maps-services-java
         GeoApiContext context = new GeoApiContext.Builder()
@@ -159,5 +163,5 @@ public class Localization {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 }

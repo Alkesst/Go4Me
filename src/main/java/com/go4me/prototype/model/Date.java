@@ -8,8 +8,8 @@ public class Date {
 
   public String toString(){
 
-    String dayString;
-    String monthString;
+    String dayString = "";
+    String monthString = "";
 
     if(day > 10){
       monthString = "0" + Integer.toString(day);
