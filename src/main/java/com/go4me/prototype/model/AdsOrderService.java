@@ -3,6 +3,8 @@ package com.go4me.prototype.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdsOrderService {
   @Autowired
@@ -12,8 +14,8 @@ public class AdsOrderService {
       return repository.findAll();
   }
 
-  public void update(AdsOrder ao){
-    AdsOrder a = repository.getOne(ao.getID());
+  /* public void update(AdsOrder ao){
+    // TODO ESTA MAL!! AdsOrder a = repository.getOne(ao.getID());
 
    a.setDescription(ao.getDescription());
    a.setPublishedBy(ao.getPublishedBy());
@@ -21,7 +23,7 @@ public class AdsOrderService {
    a.setWhenTheUserWillGoToBuy(ao.getWhenTheUserWillGoToBuy());
 
    repository.saveAndFlush(a);
-  }
+  }*/
 
   public void add(AdsOrder ao){
     repository.saveAndFlush(ao);

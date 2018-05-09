@@ -14,10 +14,10 @@ public class Message{
   @Column(nullable=false)
   private String content;
 
-  @Column(nullable=false)
+  @OneToOne
   private User wroteBy;
 
-  @Column(nullable=false)
+  @OneToOne
   private User sentTo;
 
 

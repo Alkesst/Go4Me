@@ -13,7 +13,7 @@ public class AdsOrder{
   @Column(nullable=false)
   private String description;
 
-  @Column(nullable=false)
+  @ManyToOne
   private User publishedBy;
 
   @Column(nullable=false)
@@ -52,18 +52,18 @@ public class AdsOrder{
   }
 
   public double getMaxCost(){
-    return maxCost
+    return maxCost;
   }
 
   public Date getWhenTheUserWillGoToBuy(){
     return whenTheUserWillGoToBuy;
   }
 
-  public void setDescription (){
-    return this.description;
+  public void setDescription (String d){
+    description = d;
   }
 
-  public void setId (int id){
+  public void setId (Long id){
     this.id = id;
   }
 
@@ -75,9 +75,10 @@ public class AdsOrder{
      this.maxCost = maxCost;
   }
 
+  /*HACERLO BIEN!!!
   public void setWhenTheUserWillGoToBuy (date whenTheUserWillGoToBuy){
       this.whenTheUserWillGoToBuy = whenTheUserWillGoToBuy;
-  }
+  }*/
 
   @Override
   public int hashCode() {

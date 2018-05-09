@@ -15,10 +15,16 @@
 <body>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <strong>User!</strong>
+        <strong>User Panel</strong>
     </div>
     <div class="panel-body">
-        <td th:text="${User.id}"></td>
+        <div class="row">
+            <td th:text="${User.id}" class="col-sm"></td>
+            <br>
+            <td th:text="${User.getUserName()}" class="col-sm"></td>
+            <br>
+            <td th:text="${User.getEmail()}" class="col-sm"></td>
+        </div>
     </div>
 </div>
 </body>
