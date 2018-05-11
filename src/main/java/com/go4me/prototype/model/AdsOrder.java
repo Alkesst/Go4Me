@@ -75,7 +75,7 @@ public class AdsOrder{
      this.maxCost = maxCost;
   }
 
-  /*HACERLO BIEN!!!
+  /*TODO HACERLO BIEN!!!
   public void setWhenTheUserWillGoToBuy (date whenTheUserWillGoToBuy){
       this.whenTheUserWillGoToBuy = whenTheUserWillGoToBuy;
   }*/
