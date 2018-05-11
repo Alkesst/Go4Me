@@ -4,28 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <link href="../static/App.css" rel="stylesheet" media="screen" th:href="@{/static/App.css}" />
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        rel="stylesheet"></link>
-<script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <strong>User Panel</strong>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <td th:text="${User.id}" class="col-sm"></td>
-            <br>
-            <td th:text="${User.getUserName()}" class="col-sm"></td>
-            <br>
-            <td th:text="${User.getEmail()}" class="col-sm"></td>
+    <div th:replace="/base/baseapp :: header">...</div>
+    <div class="container">
+        <div>
+            <strong>User Panel</strong>
+        </div>
+        <a class="btn btn-outline-info" th:href="@{/}">Back!</a>
+        <div style="margin-right: auto">
+            <h1 class="text-center">Info</h1>
+            <div class="container row card text-white bg-info mb-3">
+                <div class="card-body col-auto">
+                    <div class="card-title ">Username: </div>
+                    <div th:text="${User.getUserName()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Email: </div>
+                    <div th:text="${User.getEmail()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Rating: </div>
+                    <div th:text="${User.getRating()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Twitter: </div>
+                    <div th:text="${User.getTwitterAccount()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Address 1: </div>
+                    <div th:text="${User.getLocalization().getAddress1()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Address 2: </div>
+                    <div th:text="${User.getLocalization().getAddress2() != null} ?
+                    ${User.getLocalization().getAddress2()} : 'Empty value'" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">City: </div>
+                    <div th:text="${User.getLocalization().getCity()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">Country: </div>
+                    <div th:text="${User.getLocalization().getCountry()}" class="card-text"></div>
+                </div>
+                <div class="card-body col-auto">
+                    <div class="card-title">ZIP Code: </div>
+                    <div th:text="${User.getLocalization().getZipCode()}" class="card-text"></div>
+                </div>
+                <a th:href="@{/profile/${User.getUserName()}/configuration}" class="btn btn-success col-sm-3">Edit profile!</a>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
