@@ -16,13 +16,11 @@
 <body>
     <div th:replace="/base/baseapp :: header" class="App-header">...</div>
     <div class="container">
-        <div>
-            <strong>User Panel</strong>
-        </div>
-        <a class="btn btn-outline-info" th:href="@{/}">Back!</a>
+        <a class="btn button-go4me" th:href="@{/}">Back!</a>
         <div style="margin-right: auto">
             <h1 class="text-center">Info</h1>
-            <div class="container row card text-white bg-info mb-3">
+            <a th:href="@{profile/config/${User.getId()}}" class="btn button-go4me col-sm-3">Edit profile!</a>
+            <div class="container row card text-black container-background mb-3">
                 <div class="card-body col-auto">
                     <div class="card-title ">Username: </div>
                     <div th:text="${User.getUserName()}" class="card-text"></div>
@@ -60,7 +58,6 @@
                     <div class="card-title">ZIP Code: </div>
                     <div th:text="${User.getLocalization().getZipCode()}" class="card-text"></div>
                 </div>
-                <a th:href="@{/profile/${User.getUserName()}/configuration}" class="btn btn-success col-sm-3">Edit profile!</a>
             </div>
         </div>
     </div>

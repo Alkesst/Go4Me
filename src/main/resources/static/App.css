@@ -1,7 +1,24 @@
 .App-header {
-    background-color: #222222;
+    background-color: #00BFA5;
     height: 75px;
     padding: 20px;
-    color: #40E0D0;
+    /* color: #03DAC5; */
+    color: black;
     text-align: center;
+    margin-bottom: 30px;
 }
+
+.container-background{
+    background: #A7FFEB;
+}
+
+.button-go4me{
+    border-color: #00BFA5;
+    color: #00BFA5;
+}
+
+.button-go4me:hover{
+    background: #00BFA5;
+    color: black;
+}
+
