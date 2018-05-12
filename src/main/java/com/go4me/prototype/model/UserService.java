@@ -41,6 +41,8 @@ public class UserService {
 
     public List<User> searchByLocation(Localization location) { return repository.findByLocalization(location); }
 
+    public User searchByid(Long id){ return repository.findByid(id); }
+
     public User getUserByID(Long id) { return repository.getOne(id); }
 
 }
