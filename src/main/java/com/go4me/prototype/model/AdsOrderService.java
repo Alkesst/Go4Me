@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Date;
 
 @Service
 public class AdsOrderService {
@@ -24,6 +25,11 @@ public class AdsOrderService {
 
    repository.saveAndFlush(a);
   }*/
+
+  public boolean timeout(AdsOrderRequest order){
+    java.util.Date currentDate= new Date();
+    return (currentDate.compareTo(order.getMaxTime()) < 0);
+  }
 
   public void add(AdsOrder ao){
     repository.saveAndFlush(ao);
