@@ -11,6 +11,9 @@ public class AdsOrder{
   private Long id;
 
   @Column(nullable=false)
+  private java.util.Date maxTime;
+
+  @Column(nullable=false)
   private String description;
 
   @ManyToOne
@@ -43,6 +46,10 @@ public class AdsOrder{
     return id;
   }
 
+  public java.util.Date getMaxTime(){
+      return maxTime;
+  }
+
   public String getDescription(){
     return description;
   }
@@ -67,6 +74,10 @@ public class AdsOrder{
     this.id = id;
   }
 
+  public void setMaxTime(java.util.Date maxTime){
+      this.maxTime = maxTime;
+  }
+
   public void setPublishedBy (User publishedBy){
     this.publishedBy = publishedBy;
   }
@@ -75,10 +86,9 @@ public class AdsOrder{
      this.maxCost = maxCost;
   }
 
-  /*TODO HACERLO BIEN!!!
-  public void setWhenTheUserWillGoToBuy (date whenTheUserWillGoToBuy){
+  public void setWhenTheUserWillGoToBuy (Date whenTheUserWillGoToBuy){
       this.whenTheUserWillGoToBuy = whenTheUserWillGoToBuy;
-  }*/
+  }
 
   @Override
   public int hashCode() {

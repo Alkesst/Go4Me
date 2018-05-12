@@ -2,6 +2,7 @@ package com.go4me.prototype.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Date;
 
 @Service
 public class OrderService{
@@ -19,22 +20,10 @@ public class OrderService{
     repository.saveAndFlush(o);
   }
 
-  /*                      PREGUNTAR A JAIME
-
-  public void orderStart(){
-    //TODO <=======================================================
+  public boolean timeout(OrderRequest order){
+    java.util.Date currentDate= new Date();
+    return  (currentDate.compareTo(order.getMaxTime()) < 0);
   }
-
-  public Localization getLocalizationFromPublisher(){
-    return publishedBy.getLocalization();
-  }
-
-  public boolean verifedBy();
-
-  public void orderFinished(){
-    //TODO<========================================================
-  }
-  */
 
   public void add(OrderRequest orderRequest){
     repository.saveAndFlush(orderRequest);

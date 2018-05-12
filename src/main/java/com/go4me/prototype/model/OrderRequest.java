@@ -12,7 +12,7 @@ public class OrderRequest {
     private Long id;
 
     @Column(nullable=false)
-    private Date maxTime;
+    private java.util.Date maxTime;
 
     @ManyToOne
     private User publishedBy;
@@ -29,21 +29,16 @@ public class OrderRequest {
     @ManyToOne
     private User seller;
 
-    @Column(nullable = false)
-    private int timeout;
-
     @Column
     private int verifiedByBuyer;
     @Column
     private int verifiedBySeller;
 
     public OrderRequest(){
-        this.timeout = 0;
     }
 
     public OrderRequest(Long OrderId){
         this.id = OrderId;
-        this.timeout = 0;
     }
 
     public OrderRequest(User publishedBy, String description, double maxCost){
@@ -62,7 +57,7 @@ public class OrderRequest {
         this.id = id;
     }
 
-    public void setMaxTime(Date maxTime){
+    public void setMaxTime(java.util.Date maxTime){
         this.maxTime = maxTime;
     }
 
@@ -82,7 +77,7 @@ public class OrderRequest {
         return id;
     }
 
-    public Date getMaxTime(){
+    public java.util.Date getMaxTime(){
         return maxTime;
     }
 
@@ -113,19 +108,6 @@ public class OrderRequest {
     public void setVerifiedByBuyer(int verifiedByBuyer) { this.verifiedByBuyer = verifiedByBuyer; }
 
     public void setVerifiedBySeller(int verifiedBySeller) { this.verifiedBySeller = verifiedBySeller; }
-
-    private void setTimeOut(int timeout){
-      this.timeout = timeout;
-    }
-
-    /*private void checkTimeOut(){
-        // TODO está mal
-      LocalDateTime now = LocalDateTime.now();
-      Date sysdate = new Date(now.getYear(), now.getMonth(), now.getDay(), now.getHour(), now.getMinute());
-      if(maxTime.compare(sysdate) >= 0){
-        setTimeOut(1);
-      }
-    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -158,21 +140,3 @@ public class OrderRequest {
                 '}';
     }
 }
-
-/*===================================================================
-class TimeoutChecker extends Thread {
-  public void run(){
-
-    while(true){
-      LocalDateTime now = LocalDateTime.now();
-      Date sysdate = new Date(now.getYear(), now.getMonth(), now.getDay(), now.getHour(), now.getMinute());
-      if(compare(maxTime,sysdate) >= 0){
-        setTimeOut(true);
-        Thread.stop();
-      }
-      Thread.sleep(60000)
-    }
-
-  }
-}
-*/ //================================================================
