@@ -18,7 +18,7 @@
     <h1 class="text-center display-1">Register</h1>
     <div class="d-flex justify-content-center">
         <form class="form-horizontal" action="#" th:object="${user}"
-              th:action="@{/userpanel.html}" method="POST" style="margin: 10px">
+              th:action="@{/register}" method="POST" style="margin: 10px">
             <div class="form-group">
                 <fieldset>
                     <div class="form-group">
@@ -71,7 +71,7 @@
                 </fieldset>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-sm button-go4me" th:href="@{/profile/${user.getId()}}">Save</button>
+                <button type="submit" class="btn btn-sm button-go4me" th:href="@{/}">Save</button>
                 <a th:href="@{/}" class="btn btn-sm button-go4me">Cancel</a>
             </div>
         </form>

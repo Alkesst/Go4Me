@@ -23,10 +23,10 @@ public class UserPanelController {
         return "userpanel";
     }
 
-    @GetMapping("profile/config/{id}")
-    public String editUser(@PathVariable("id") String id, Model model){
+    @GetMapping("profile/config/{id:[\\d]+}")
+    public String editUser(@PathVariable("id") Long id, Model model){
         model.addAttribute("id", id);
-        model.addAttribute("User", userService.searchByid(Long.valueOf(id)));
+        model.addAttribute("User", userService.searchByid(id));
         return "configuser";
     }
     

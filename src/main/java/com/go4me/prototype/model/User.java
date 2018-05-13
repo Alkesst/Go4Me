@@ -44,6 +44,7 @@ public class User {
     public User() {
         isPremium = 0;
         isBanned = 0;
+        rating = 0.0;
     }
 
     public User(Long userId) { this.id = userId; }
