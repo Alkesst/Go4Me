@@ -26,7 +26,7 @@ public class AdsOrderService {
    repository.saveAndFlush(a);
   }*/
 
-  public boolean timeout(AdsOrderRequest order){
+  public boolean timeout(AdsOrder order){
     java.util.Date currentDate= new Date();
     return (currentDate.compareTo(order.getMaxTime()) < 0);
   }
