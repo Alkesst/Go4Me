@@ -35,6 +35,10 @@ public class UserService {
         repository.deleteById(user.getId());
     }
 
+    public OrderRequest publishOrder(Long id, String description, double cost){
+        return new OrderRequest(searchByid(id), description, cost);
+    }
+
     public User searchByUserName(String userName){ return repository.findByUserName(userName); }
 
     public User searchByEmail(String email){ return repository.findByEmail(email); }
