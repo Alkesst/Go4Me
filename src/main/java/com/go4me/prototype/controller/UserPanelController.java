@@ -18,11 +18,18 @@ public class UserPanelController {
     UserService userService;
 
     @GetMapping("/profile/{username}")
-    public String userPanelView(@PathVariable("username") String username, Model model){
+    public String userPanelView(@PathVariable("username") String username, Model model) {
         model.addAttribute("User", userService.searchByUserName(username));
         return "userpanel";
     }
 
+    @GetMapping("profile/config/{id:[\\d]+}")
+    public String editUser(@PathVariable("id") Long id, Model model){
+        model.addAttribute("id", id);
+        model.addAttribute("User", userService.searchByid(id));
+        return "configuser";
+    }
+    
     @GetMapping("/register")
     public String registerPanelView(User newUser, Model model){
         model.addAttribute("users", userService.getAll());
