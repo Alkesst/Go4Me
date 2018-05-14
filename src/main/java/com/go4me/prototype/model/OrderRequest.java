@@ -41,10 +41,11 @@ public class OrderRequest {
         this.id = OrderId;
     }
 
-    public OrderRequest(User publishedBy, String description, double maxCost){
+    public OrderRequest(User publishedBy, String description, double maxCost, java.util.Date maxTime){
         this.publishedBy=publishedBy;
         this.description=description;
         this.maxCost=maxCost;
+        this.maxTime=maxTime;
     }
 
     public OrderRequest(AdsOrder ao){

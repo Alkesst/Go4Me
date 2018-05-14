@@ -31,7 +31,7 @@ public class AdsOrder{
     this.id = id;
   }
 
-  public AdsOrder(String description, User publishedBy, double maxCost, Date whenTheUserWillGoToBuy){
+  public AdsOrder(String description, User publishedBy, double maxCost, java.util.Date whenTheUserWillGoToBuy){
     this.description = description;
     this.publishedBy = publishedBy;
     this.maxCost = maxCost;
