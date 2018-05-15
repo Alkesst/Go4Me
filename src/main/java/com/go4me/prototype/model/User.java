@@ -29,7 +29,7 @@ public class User {
     @Column
     private int isBanned;
 
-    @Column
+    @Column(nullable=false)
     private String password;
 
     @Column(unique=true)
@@ -52,9 +52,15 @@ public class User {
 
     public User(Long userId) { this.id = userId; }
 
+    public User(User user){
+        this(user.rating, user.isPremium, user.userName, user.email, user.blockedUsers,
+                user.isBanned, user.twitterAccount, user.localization, user.publishedOrderRequests, user.password);
+        this.id = user.getId();
+    }
+
     public User(Double rating, int isPremium, String userName, String email,
                 List<User> blockedUsers, int isBanned, String twitterAccount,
-                Localization localization, List<OrderRequest> publishedOrderRequests) {
+                Localization localization, List<OrderRequest> publishedOrderRequests, String password) {
         this.rating = rating;
         this.isPremium = isPremium;
         this.userName = userName;
@@ -64,6 +70,7 @@ public class User {
         this.twitterAccount = twitterAccount;
         this.localization = localization;
         this.publishedOrderRequests = publishedOrderRequests;
+        this.password = password;
     }
 
     public void setPremium(int premium) {

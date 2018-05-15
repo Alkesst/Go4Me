@@ -38,7 +38,7 @@ public class UserRepositoryDetailsService implements UserDetailsService {
         private static final long serialVersionUID = -5708084648279451366L;
 
         private CustomUserDetails(User user) {
-            super(user.getId());
+            super(user);
         }
 
         @Override

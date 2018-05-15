@@ -21,7 +21,7 @@ public class ApplicationPrototype {
        return args -> {
            Localization local = new Localization("calle generica", "ciudad genérica", "pais generico", 7);
            User jesuspa98 = new User(0.0,0,"jesuspa98","aa@gmail.com",new ArrayList<>(),
-                   0,"@twitter", local, new ArrayList<>());
+                   0,"@twitter", local, new ArrayList<>(), "aeaeeae");
            userService.add(jesuspa98);
         };
     }

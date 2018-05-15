@@ -3,6 +3,9 @@ package com.go4me.prototype.controller;
 import com.go4me.prototype.model.User;
 import com.go4me.prototype.model.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,14 +22,15 @@ public class UserController {
 
     @GetMapping("/profile/{username}")
     public String userPanelView(@PathVariable("username") String username, Model model) {
+        model.addAttribute("myUser", false);
         model.addAttribute("User", userService.searchByUserName(username));
         return "userpanel";
     }
 
-    @GetMapping("profile/config/{id:[\\d]+}")
-    public String editUser(@PathVariable("id") Long id, Model model){
-        model.addAttribute("id", id);
-        model.addAttribute("User", userService.searchByid(id));
+    @GetMapping("profile/config/")
+    public String editUser(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("User", auth.getPrincipal());
         return "configuser";
     }
 
@@ -37,18 +41,20 @@ public class UserController {
         return "registerUser";
     }
 
-    @PostMapping("/profile/{username}")
-    public String registerNewUser(@Valid User newUser, BindingResult result, Model model, @PathVariable("username") String username) {
-        userService.add(newUser);
-        model.addAttribute("create", true);
-        return userPanelView(newUser.getUserName(), model);
-    }
-
-    @PostMapping("/profile/config/{id}")
-    public String updateUser(@Valid User modifiedUser, BindingResult result, Model model, @PathVariable("id") Long id){
+    @PostMapping("/profile/config/")
+    public String updateUser(@Valid User modifiedUser, BindingResult result, Model model){
         userService.update(modifiedUser);
         model.addAttribute("create", true);
         return userPanelView(modifiedUser.getUserName(), model);
+    }
+
+    @GetMapping("/profile")
+    public String ownUserPanelView(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) auth.getPrincipal();
+        model.addAttribute("myUser", true);
+        model.addAttribute("User", userService.searchByUserName(user.getUserName()));
+        return "userpanel";
     }
 
 }

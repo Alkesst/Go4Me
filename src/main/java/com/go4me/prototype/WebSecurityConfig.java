@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // permitimos estas urls sin autenticacion
                 // console se usa para poder acceder a la pagina de configuracion de la base de
                 // datos
-                .antMatchers("/", "/console/**").permitAll().anyRequest().authenticated()
+                .antMatchers("/", "/console/**", "/register", "/App.css").permitAll().anyRequest().authenticated()
 
                 .and()
 
@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
     }
 
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth, UserRepositoryDetailsService userDetailsService,
                                 UserRepository userRepository) throws Exception {
@@ -52,10 +53,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Crear usuario por defecto
         Localization local = new Localization("calle generica", "ciudad genérica", "pais generico", 7);
         User user = new User(0.0,0,"paco","paco@gmail.com",new ArrayList<>(),
-                0,"@paco", local, new ArrayList<>());
+                0,"@paco", local, new ArrayList<>(),
+                "$2a$04$mhVuX7/zGzhPu7xKCrqY8e7M0RkORqZ4QB/4rCEgYQNddyt1mAKZK");
         // la contraseña es test (encriptada usando bcrypt)
         // https://www.dailycred.com/article/bcrypt-calculator
-        user.setPassword("hola");
         if (userRepository.findByEmail(user.getEmail()) == null) {
             userRepository.save(user);
         }
