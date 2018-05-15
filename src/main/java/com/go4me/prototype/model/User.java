@@ -29,6 +29,9 @@ public class User {
     @Column
     private int isBanned;
 
+    @Column
+    private String password;
+
     @Column(unique=true)
     private String twitterAccount;
 
@@ -125,7 +128,22 @@ public class User {
 
     public void setId(Long id){ this.id = id; }
 
+    public int getIsPremium() { return isPremium; }
 
+    public void setIsPremium(int isPremium) { this.isPremium = isPremium; }
+
+    public int getIsBanned() { return isBanned; }
+
+    public void setIsBanned(int isBanned) { this.isBanned = isBanned; }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public List<OrderRequest> getPublishedOrderRequests() { return publishedOrderRequests; }
+
+    public void setPublishedOrderRequests(List<OrderRequest> publishedOrderRequests) {
+        this.publishedOrderRequests = publishedOrderRequests; }
 
     @Override
     public boolean equals(Object o) {
@@ -150,8 +168,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", blockedUsers=" + blockedUsers +
                 ", isBanned=" + isBanned +
+                ", password='" + password + '\'' +
                 ", twitterAccount='" + twitterAccount + '\'' +
                 ", localization=" + localization +
+                ", publishedOrderRequests=" + publishedOrderRequests +
                 '}';
     }
 }
