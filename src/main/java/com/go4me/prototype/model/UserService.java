@@ -24,6 +24,7 @@ public class UserService {
         u.setPremium(user.isPremium());
         u.setUserName(user.getUserName());
         u.setLocalization(user.getLocalization());
+        u.setId(user.getId());
         repository.saveAndFlush(u);
     }
 

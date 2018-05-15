@@ -123,6 +123,8 @@ public class User {
 
     public void setLocalization(Localization localization) { this.localization = localization; }
 
+    public void setId(Long id){ this.id = id; }
+
 
 
     @Override

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class UserPanelController {
+public class UserController {
     @Autowired
     UserService userService;
 
@@ -29,7 +29,7 @@ public class UserPanelController {
         model.addAttribute("User", userService.searchByid(id));
         return "configuser";
     }
-    
+
     @GetMapping("/register")
     public String registerPanelView(User newUser, Model model){
         model.addAttribute("users", userService.getAll());
@@ -37,10 +37,18 @@ public class UserPanelController {
         return "registerUser";
     }
 
-    @PostMapping("/register")
-    public String save(@Valid User newUser, BindingResult result, Model model) {
+    @PostMapping("/profile/{username}")
+    public String registerNewUser(@Valid User newUser, BindingResult result, Model model, @PathVariable("username") String username) {
         userService.add(newUser);
         model.addAttribute("create", true);
         return userPanelView(newUser.getUserName(), model);
     }
+
+    @PostMapping("/profile/config/{id}")
+    public String updateUser(@Valid User modifiedUser, BindingResult result, Model model, @PathVariable("id") Long id){
+        userService.update(modifiedUser);
+        model.addAttribute("create", true);
+        return userPanelView(modifiedUser.getUserName(), model);
+    }
+
 }
