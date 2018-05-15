@@ -33,6 +33,11 @@
                         <input type="text" class="form-control input-sm" th:field="*{userName}"
                                autofocus="autofocus" placeholder="Username" maxlength="50" required/>
                     </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('twitterAccount')}? 'has-error'">
+                        <label>Password: </label>
+                        <input type="text" class="form-control input-sm" th:field="*{password}"
+                               placeholder="Twitter" maxlength="50" />
+                    </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
                         <label>email</label>
                         <input type="email" class="form-control input-sm" th:field="*{email}"

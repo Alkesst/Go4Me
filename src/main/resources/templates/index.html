@@ -16,12 +16,8 @@
     <div th:replace="/base/baseapp :: header" class="App-header">...</div>
     <div class="container">
         <div sec:authorize="isAuthenticated()">
-            <h1>Opciones</h1>
-            <a class="btn button-go4me" th:href="@{/profile/jesuspa98}">User Profile</a>
-            <a class="btn button-go4me" th:href="@{/register}">Create a new account</a>
-        </div>
-        <div sec:authorize="isAuthenticated()">
             <div>
+                <a class="btn button-go4me mb-3" th:href="@{/profile/}">User Profile</a>
                 Estás logueado con el usuario <b sec:authentication="name"></b>
             </div>
             <form th:action="@{/logout}" method="post">
@@ -29,8 +25,9 @@
             </form>
         </div>
         <div sec:authorize="isAnonymous()">
-            <div>No estás logueado</div>
+            <div>You are not logged in.</div>
             <a th:href="@{/login}" class="btn button-go4me">Login</a>
+            <a class="btn button-go4me" th:href="@{/register}">Create a new account</a>
         </div>
     </div>
 </body>
