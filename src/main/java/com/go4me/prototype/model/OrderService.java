@@ -3,13 +3,18 @@ package com.go4me.prototype.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderService{
   @Autowired
   OrderRepository repository;
 
-  public void update(OrderRequest orderRequest){
+    public List<OrderRequest> getAll(){
+        return repository.findAll();
+    }
+
+    public void update(OrderRequest orderRequest){
     OrderRequest o = repository.getOne(orderRequest.getID());
 
     o.setMaxTime(orderRequest.getMaxTime());
