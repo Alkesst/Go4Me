@@ -15,24 +15,20 @@
 <body>
 <div th:replace="/base/baseapp :: header" class="App-header">...</div>
 <div class="container">
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/login}" method="post" class="text-center">
         <div>
             <label> Email : <input type="text" name="username" /></label>
         </div>
         <div>
             <label> Contraseña: <input type="password" name="password" /></label>
         </div>
-        <div>
-            <input class="btn button-go4me" type="submit" value="Sign In"/>
-        </div>
-
-        <div>
-            Usuario por defecto: test@test.com <br> Contraseña: test
-        </div>
-
-        <br>
-        <div>
-            <a class="btn button-go4me" href="/" role="button">Volver</a>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <a class="btn button-go4me" href="/" role="button">Return</a>
+            </div>
+            <div class="col-auto">
+                <input class="btn button-go4me" type="submit" value="Sign In"/>
+            </div>
         </div>
     </form>
 </div>

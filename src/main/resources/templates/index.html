@@ -18,7 +18,7 @@
         <div sec:authorize="isAuthenticated()">
             <div>
                 <a class="btn button-go4me mb-3" th:href="@{/profile/}">User Profile</a>
-                Estás logueado con el usuario <b sec:authentication="name"></b>
+                Welcome! <b sec:authentication="name"></b>
             </div>
             <form th:action="@{/logout}" method="post">
                 <input class="btn button-go4me" type="submit" value="Logout" />
