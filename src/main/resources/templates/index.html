@@ -14,11 +14,10 @@
 </head>
 <body>
     <div th:replace="/base/baseapp :: header" class="App-header">...</div>
+    <div th:replace="/base/baseapp :: nav" class="nav-">...</div>
     <div class="container">
         <div sec:authorize="isAuthenticated()">
             <div>
-                <a class="btn button-go4me mb-3" th:href="@{/profile/}">User Profile</a>
-                Estás logueado con el usuario <b sec:authentication="name"></b>
                 <a class="btn button-go4me mb-3" th:href="@{/neworder/}">Create an order</a>
                 Welcome! <b sec:authentication="name"></b>
             </div>

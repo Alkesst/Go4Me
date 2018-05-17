@@ -5,7 +5,6 @@
     /* color: #03DAC5; */
     color: black;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .container-background{
@@ -17,6 +16,9 @@
     color: #00BFA5;
 }
 
+.button-go4me #navBar{
+    background: #128875;
+}
 .checked {
     color: #ffff00;
 }
@@ -30,3 +32,7 @@
     margin-top: 15px;
 }
 
+.nav-go4me {
+    margin-bottom: 30px;
+    background: #128875;
+}
