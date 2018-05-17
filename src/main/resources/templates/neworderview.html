@@ -31,9 +31,19 @@
                         </div>
                         <!--<input th:field="*{id}" type="hidden"> TODO Fix it-->
                         <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
-                            <label>Max Time</label>
-                            <input type="date" class="form-control input-sm" th:field="*{maxTime}"
-                                   autofocus="autofocus" placeholder="MaxTime" required/>
+                            <label>Day</label>
+                            <input type="number" class="form-control input-sm" th:field="*{day}"
+                                   autofocus="autofocus" placeholder="Day" required/>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                            <label>Month</label>
+                            <input type="number" class="form-control input-sm" th:field="*{month}"
+                                   autofocus="autofocus" placeholder="Month" required/>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                            <label>Hour</label>
+                            <input type="text" class="form-control input-sm" th:field="*{hour}"
+                                   autofocus="autofocus" placeholder="Hour (hh:mm)" required />
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
                             <label>Description</label>

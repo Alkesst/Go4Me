@@ -34,6 +34,15 @@ public class OrderRequest {
     @Column
     private int verifiedBySeller;
 
+    @Column
+    private int day;
+
+    @Column
+    private int month;
+
+    @Column
+    private String hour;
+
     public OrderRequest(){
     }
 
@@ -41,11 +50,13 @@ public class OrderRequest {
         this.id = OrderId;
     }
 
-    public OrderRequest(User publishedBy, String description, double maxCost, java.util.Date maxTime){
+    public OrderRequest(User publishedBy, String description, double maxCost, int day, int month, String hour){
         this.publishedBy=publishedBy;
         this.description=description;
         this.maxCost=maxCost;
-        this.maxTime=maxTime;
+        this.day = day;
+        this.month = month;
+        this.hour = hour;
     }
 
     public OrderRequest(AdsOrder ao){
@@ -57,6 +68,18 @@ public class OrderRequest {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public int getDay() { return day; }
+
+    public void setDay(int day) { this.day = day; }
+
+    public int getMonth() { return month; }
+
+    public void setMonth(int month) { this.month = month; }
+
+    public String getHour() { return hour; }
+
+    public void setHour(String hour) { this.hour = hour; }
 
     public void setMaxTime(java.util.Date maxTime){
         this.maxTime = maxTime;

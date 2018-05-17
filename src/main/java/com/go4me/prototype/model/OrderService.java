@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class OrderService{
@@ -29,6 +30,17 @@ public class OrderService{
     java.util.Date currentDate= new Date();
     return  (currentDate.compareTo(order.getMaxTime()) < 0);
   }
+
+  public java.util.Date parseToDate(int day, int month, String hora){
+        java.util.Date date = new Date();
+        date.setMonth(month - 1);
+        date.setDate(day);
+        date.setYear(118);
+        String array[] = hora.split(":");
+        date.setHours(Integer.valueOf(array[0]));
+        date.setMinutes(Integer.valueOf(array[1]));
+        return date;
+    }
 
   public void add(OrderRequest orderRequest){
     repository.saveAndFlush(orderRequest);
