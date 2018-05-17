@@ -50,8 +50,8 @@ public class UserService {
         repository.deleteById(user.getId());
     }
 
-    public OrderRequest publishOrder(Long id, String description, double cost, java.util.Date maxTime){
-        return new OrderRequest(searchByid(id), description, cost, maxTime);
+    public OrderRequest publishOrder(Long id, String description, double cost, int day, String month, String hour){
+        return new OrderRequest(searchByid(id), description, cost, day, month, hour);
     }
 
     public AdsOrder publishAdsOrder(Long id, String description, double cost, java.util.Date whenTheUserWillGoToBuy){

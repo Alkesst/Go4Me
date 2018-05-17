@@ -33,11 +33,13 @@
                 </div>
                 <div class="card-body col-auto">
              	   <div class="card-title">Rating: </div>
-               		<span class="fa fa-star checked"></span>
+             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}"><span class="fa fa-star checked"></span></a>
 					<span class="fa fa-star checked"></span>
 					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star"></span>
-					<span th:text="${User.getRating()}" class="fa fa-star"> 3 average based on 254 reviews</span>
+					<span class="fa fa-star-half-o checked"></span>
+					<span class="fa fa-star-o checked"></span>
+
+                    <div th:text="${User.getRating()}" class="card-text"> average based on 254 reviews</div>
                 </div>
                 <div class="card-body col-auto">
                     <div class="card-title">Twitter: </div>
