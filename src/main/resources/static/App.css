@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.nav-links-go4me:hover {
+    color: #adadad;
+}
+
 .container-background{
     background: #A7FFEB;
 }
@@ -15,19 +19,25 @@
     border-color: #00BFA5;
     color: #00BFA5;
 }
-
-.button-go4me #navBar{
-    background: #128875;
-}
-.checked {
-    color: #ffff00;
-}
-
 .button-go4me:hover{
     background: #00BFA5;
     color: black;
 }
 
+.button-go4me-nav{
+    border-color: #00BFA5;
+    color: #00d8bc;
+    background: #128875;
+}
+
+.button-go4me-nav:hover{
+    background: #00BFA5;
+    color: black;
+}
+
+.checked {
+    color: #ffff00;
+}
 .card-panel {
     margin-top: 15px;
 }
