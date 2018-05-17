@@ -29,13 +29,12 @@
                                 </div>
                             </div>
                         </div>
-                        <!--<input th:field="*{id}" type="hidden"> TODO Fix it-->
-                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                        <div class="form-group" th:classappend="${#fields.hasErrors('Day')}? 'has-error'">
                             <label>Day</label>
                             <input type="number" class="form-control input-sm" th:field="*{day}"
                                    autofocus="autofocus" placeholder="1" required min="1" max="31" />
                         </div>
-                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                        <div class="form-group" th:classappend="${#fields.hasErrors('Month')}? 'has-error'">
                             <label>Month</label>
                             <select class="exampleSelect1" field="*{month}">
                                 <option>January</option>
@@ -52,7 +51,7 @@
                                 <option>December</option>
                             </select>
                         </div>
-                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                        <div class="form-group" th:classappend="${#fields.hasErrors('Hour')}? 'has-error'">
                             <label>Hour</label>
                             <input type="text" class="form-control input-sm" th:field="*{hour}"
                                    autofocus="autofocus" placeholder="Hour (hh:mm)" required />
