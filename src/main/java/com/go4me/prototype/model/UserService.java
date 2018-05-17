@@ -1,6 +1,9 @@
 package com.go4me.prototype.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +12,13 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserRepository repository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    
+    public void register(User user) {
+    	user.setPassword(passwordEncoder.encode(user.getPassword()));
+    	this.add(user);
+    }
 
     public List<User> getAll(){
         return repository.findAll();
@@ -25,6 +35,10 @@ public class UserService {
         u.setUserName(user.getUserName());
         u.setLocalization(user.getLocalization());
         u.setId(user.getId());
+        u.setNumberOfRatings(user.getNumberOfRatings());
+        u.setPassword(user.getPassword());
+        u.setPublishedOrderRequests(user.getPublishedOrderRequests());
+        u.setPublishedAds(user.getPublishedAds());
         repository.saveAndFlush(u);
     }
 
@@ -53,5 +67,4 @@ public class UserService {
     public User searchByid(Long id){ return repository.findByid(id); }
 
     public User getUserByID(Long id) { return repository.getOne(id); }
-
 }

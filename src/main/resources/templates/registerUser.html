@@ -18,7 +18,7 @@
     <h1 class="text-center display-1">Register</h1>
     <div class="d-flex justify-content-center">
         <form class="form-horizontal" action="#" th:object="${user}"
-              th:action="@{'/profile/' + ${user.getUserName()}}" method="POST" style="margin: 10px">
+              th:action="@{'/register'}" method="POST" style="margin: 10px">
             <div class="form-group">
                 <fieldset>
                     <div class="form-group">
@@ -29,22 +29,22 @@
                         </div>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('UserName')}? 'has-error'">
-                        <label>Username</label>
+                        <label>Username: </label>
                         <input type="text" class="form-control input-sm" th:field="*{userName}"
                                autofocus="autofocus" placeholder="Username" maxlength="50" required/>
                     </div>
-                    <div class="form-group" th:classappend="${#fields.hasErrors('twitterAccount')}? 'has-error'">
+                    <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
                         <label>Password: </label>
-                        <input type="text" class="form-control input-sm" th:field="*{password}"
-                               placeholder="Twitter" maxlength="50" />
+                        <input type="password" class="form-control input-sm" th:field="*{password}"
+                               placeholder="Password" maxlength="50" />
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
-                        <label>email</label>
+                        <label>Email: </label>
                         <input type="email" class="form-control input-sm" th:field="*{email}"
                                placeholder="Email" maxlength="50" required/>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('localization.address1')}? 'has-error'">
-                        <label>Address 1</label>
+                        <label>Address 1: </label>
                         <input type="text" class="form-control input-sm" th:field="*{localization.address1}"
                                placeholder="Address 1" maxlength="50" required/>
                     </div>
@@ -54,12 +54,12 @@
                                placeholder="Address 2" maxlength="50" />
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('localization.zipCode')}? 'has-error'">
-                        <label>zip Code</label>
+                        <label>zip Code: </label>
                         <input type="number" class="form-control input-sm" th:field="*{localization.zipCode}"
                                placeholder="zip code" maxlength="50" min="0" required/>
                     </div>
                     <div class="form-group" th:classappend="${#fields.hasErrors('localization.city')}? 'has-error'">
-                        <label>City</label>
+                        <label>City: </label>
                         <input type="text" class="form-control input-sm" th:field="*{localization.city}"
                                placeholder="city" maxlength="50" required/>
                     </div>

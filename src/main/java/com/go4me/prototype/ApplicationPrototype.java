@@ -27,4 +27,10 @@ public class ApplicationPrototype {
            userService.add(jesuspa98);
         };
     }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+    	return new BCryptPasswordEncoder();
+    }
+
 }

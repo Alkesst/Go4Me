@@ -21,7 +21,7 @@ public class RegisterController {
 
     @PostMapping("/register")
     public RedirectView registerNewUser(@Valid User newUser, BindingResult result, Model model) {
-        userService.add(newUser);
+        userService.register(newUser);
         model.addAttribute("create", true);
         return new RedirectView("/profile/" + newUser.getUserName());
     }

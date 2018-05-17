@@ -2,6 +2,8 @@ package com.go4me.prototype.model;
 
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +15,12 @@ public class User {
 
     @Column(nullable=false)
     private Double rating;
+
+    @Column(nullable=false)
+    private int numberOfRatings;
+
+    //@Column(nullable=false)
+    //private List<Integer> allRatings;
 
     @Column(nullable = false)
     private int isPremium;
@@ -41,13 +49,18 @@ public class User {
     @OneToMany
     private List<OrderRequest> publishedOrderRequests;
 
-    // TODO ADD @OneToMany private List<AdsOrder> publishedAds;
-
+    @OneToMany
+    private List<AdsOrder> publishedAds;
 
     public User() {
         isPremium = 0;
         isBanned = 0;
         rating = 0.0;
+        numberOfRatings = 0;
+        blockedUsers = new ArrayList<>();
+        //allRatings = new ArrayList<Integer>();
+        publishedOrderRequests = new ArrayList<>();
+        publishedAds = new ArrayList<>();
     }
 
     public User(Long userId) { this.id = userId; }
@@ -150,8 +163,24 @@ public class User {
     public List<OrderRequest> getPublishedOrderRequests() { return publishedOrderRequests; }
 
     public void setPublishedOrderRequests(List<OrderRequest> publishedOrderRequests) {
-        this.publishedOrderRequests = publishedOrderRequests; }
+        this.publishedOrderRequests = publishedOrderRequests;
+    }
 
+    public int getNumberOfRatings() {
+        return numberOfRatings;
+    }
+
+    public void setNumberOfRatings(int numberOfRatings) {
+        this.numberOfRatings = numberOfRatings;
+    }
+
+    public List<AdsOrder> getPublishedAds() {
+        return publishedAds;
+    }
+
+    public void setPublishedAds(List<AdsOrder> publishedAds) {
+        this.publishedAds = publishedAds;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
