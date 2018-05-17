@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -28,9 +29,16 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/profile/{username}")
-    public String userPanelView(@PathVariable("username") String username, Model model) {
+    public String userPanelView(@PathVariable("username") String username,
+                                @RequestParam(name="rating", required=false, defaultValue="empty") String rating, Model model) {
+        User user = userService.searchByUserName(username);
+        if (!rating.equals("empty")){
+            user.setRating(user.getRating() + Double.parseDouble(rating));
+            user.setNumberOfRatings(user.getNumberOfRatings() + 1);
+            userService.update(user);
+        }
         model.addAttribute("myUser", false);
-        model.addAttribute("User", userService.searchByUserName(username));
+        model.addAttribute("User", user);
         return "userpanel";
     }
 
@@ -51,7 +59,7 @@ public class UserController {
     public String updateUser(@Valid User modifiedUser, BindingResult result, Model model){
         userService.update(modifiedUser);
         model.addAttribute("create", true);
-        return userPanelView(modifiedUser.getUserName(), model);
+        return userPanelView(modifiedUser.getUserName(), "empty", model);
     }
 
     @GetMapping("/profile")

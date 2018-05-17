@@ -35,6 +35,10 @@ public class UserService {
         u.setUserName(user.getUserName());
         u.setLocalization(user.getLocalization());
         u.setId(user.getId());
+        u.setNumberOfRatings(user.getNumberOfRatings());
+        u.setPassword(user.getPassword());
+        u.setPublishedOrderRequests(user.getPublishedOrderRequests());
+        u.setPublishedAds(user.getPublishedAds());
         repository.saveAndFlush(u);
     }
 

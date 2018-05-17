@@ -15,7 +15,10 @@ public class User {
 
     @Column(nullable=false)
     private Double rating;
-    
+
+    @Column(nullable=false)
+    private int numberOfRatings;
+
     //@Column(nullable=false)
     //private List<Integer> allRatings;
 
@@ -53,10 +56,11 @@ public class User {
         isPremium = 0;
         isBanned = 0;
         rating = 0.0;
-        blockedUsers = new ArrayList<User>();
+        numberOfRatings = 0;
+        blockedUsers = new ArrayList<>();
         //allRatings = new ArrayList<Integer>();
-        publishedOrderRequests = new ArrayList<OrderRequest>();
-        publishedAds = new ArrayList<AdsOrder>();
+        publishedOrderRequests = new ArrayList<>();
+        publishedAds = new ArrayList<>();
     }
 
     public User(Long userId) { this.id = userId; }
@@ -159,8 +163,24 @@ public class User {
     public List<OrderRequest> getPublishedOrderRequests() { return publishedOrderRequests; }
 
     public void setPublishedOrderRequests(List<OrderRequest> publishedOrderRequests) {
-        this.publishedOrderRequests = publishedOrderRequests; }
+        this.publishedOrderRequests = publishedOrderRequests;
+    }
 
+    public int getNumberOfRatings() {
+        return numberOfRatings;
+    }
+
+    public void setNumberOfRatings(int numberOfRatings) {
+        this.numberOfRatings = numberOfRatings;
+    }
+
+    public List<AdsOrder> getPublishedAds() {
+        return publishedAds;
+    }
+
+    public void setPublishedAds(List<AdsOrder> publishedAds) {
+        this.publishedAds = publishedAds;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
