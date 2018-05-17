@@ -11,9 +11,6 @@ public class OrderRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable=false)
-    private java.util.Date maxTime;
-
     @ManyToOne
     private User publishedBy;
 
@@ -38,7 +35,7 @@ public class OrderRequest {
     private int day;
 
     @Column
-    private int month;
+    private String month;
 
     @Column
     private String hour;
@@ -50,7 +47,7 @@ public class OrderRequest {
         this.id = OrderId;
     }
 
-    public OrderRequest(User publishedBy, String description, double maxCost, int day, int month, String hour){
+    public OrderRequest(User publishedBy, String description, double maxCost, int day, String month, String hour){
         this.publishedBy=publishedBy;
         this.description=description;
         this.maxCost=maxCost;
@@ -73,17 +70,13 @@ public class OrderRequest {
 
     public void setDay(int day) { this.day = day; }
 
-    public int getMonth() { return month; }
+    public String getMonth() { return month; }
 
-    public void setMonth(int month) { this.month = month; }
+    public void setMonth(String month) { this.month = month; }
 
     public String getHour() { return hour; }
 
     public void setHour(String hour) { this.hour = hour; }
-
-    public void setMaxTime(java.util.Date maxTime){
-        this.maxTime = maxTime;
-    }
 
     public void setPublishedBy (User publishedBy){
         this.publishedBy = publishedBy;
@@ -99,10 +92,6 @@ public class OrderRequest {
 
     public Long getID(){
         return id;
-    }
-
-    public java.util.Date getMaxTime(){
-        return maxTime;
     }
 
     public User getPublishedBy(){
@@ -139,21 +128,19 @@ public class OrderRequest {
         if (o == null || getClass() != o.getClass()) return false;
         OrderRequest orderRequest = (OrderRequest) o;
         return Double.compare(orderRequest.maxCost, maxCost) == 0 &&
-                Objects.equals(maxTime, orderRequest.maxTime) &&
                 Objects.equals(publishedBy, orderRequest.publishedBy) &&
                 Objects.equals(description, orderRequest.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(maxTime, publishedBy, description, maxCost);
+        return Objects.hash(publishedBy, description, maxCost);
     }
 
     @Override
     public String toString() {
         return "OrderRequest{" +
                 "id=" + id +
-                ", maxTime=" + maxTime +
                 ", publishedBy=" + publishedBy +
                 ", description='" + description + '\'' +
                 ", maxCost=" + maxCost +
@@ -161,6 +148,9 @@ public class OrderRequest {
                 ", seller=" + seller +
                 ", verifiedByBuyer=" + verifiedByBuyer +
                 ", verifiedBySeller=" + verifiedBySeller +
+                ", day=" + day +
+                ", month='" + month + '\'' +
+                ", hour='" + hour + '\'' +
                 '}';
     }
 }

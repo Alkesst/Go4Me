@@ -18,12 +18,36 @@
 <div class="container">
     <a class="btn button-go4me" th:href="@{/}">Back!</a>
     <div style="margin-right: auto">
-        <h1 class="text-center">User Info</h1>
-        <a th:href="@{'/index'}" th:if="${myOrder}" class="btn button-go4me col-sm-3">Edit Order!</a>
+        <h1 class="text-center">Order Info</h1>
+        <a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a>
         <div class="container row card text-black container-background card-panel">
             <div class="card-body col-auto">
-                <div class="card-title ">ID: </div>
+                <div class="card-title ">ID</div>
                 <div th:text="${Order.getID()}" class="card-text"></div>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title ">Published By</div>
+                <a th:text="${Order.publishedBy.userName}" href="/profile/jesuspa98" class="card-text"></a>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title ">Hour</div>
+                <div th:text="${Order.hour}" class="card-text"></div>
+            </div>
+            <div class="card-body col-auto">
+            <div class="card-title ">Day</div>
+            <div th:text="${Order.day}" class="card-text"></div>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title ">Month</div>
+                <div th:text="${Order.month}" class="card-text"></div>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title ">Max Cost</div>
+                <div th:text="${Order.maxCost}" class="card-text"></div>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title ">Description</div>
+                <div th:text="${Order.description}" class="card-text"></div>
             </div>
         </div>
     </div>
