@@ -2,6 +2,8 @@ package com.go4me.prototype.model;
 
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +15,9 @@ public class User {
 
     @Column(nullable=false)
     private Double rating;
+    
+    //@Column(nullable=false)
+    //private List<Integer> allRatings;
 
     @Column(nullable = false)
     private int isPremium;
@@ -41,13 +46,17 @@ public class User {
     @OneToMany
     private List<OrderRequest> publishedOrderRequests;
 
-    // TODO ADD @OneToMany private List<AdsOrder> publishedAds;
-
+    @OneToMany
+    private List<AdsOrder> publishedAds;
 
     public User() {
         isPremium = 0;
         isBanned = 0;
         rating = 0.0;
+        blockedUsers = new ArrayList<User>();
+        //allRatings = new ArrayList<Integer>();
+        publishedOrderRequests = new ArrayList<OrderRequest>();
+        publishedAds = new ArrayList<AdsOrder>();
     }
 
     public User(Long userId) { this.id = userId; }

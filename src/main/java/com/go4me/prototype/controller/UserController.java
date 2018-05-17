@@ -1,11 +1,17 @@
 package com.go4me.prototype.controller;
 
 import com.go4me.prototype.model.User;
+import com.go4me.prototype.model.UserRepository;
+import com.go4me.prototype.model.UserRepositoryDetailsService;
 import com.go4me.prototype.model.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
+@SuppressWarnings("unused")
 @Controller
 public class UserController {
     @Autowired
@@ -36,7 +43,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String registerPanelView(User newUser, Model model){
-        model.addAttribute("users", userService.getAll());
+    	model.addAttribute("users", userService.getAll());
         model.addAttribute("user", newUser);
         return "registerUser";
     }

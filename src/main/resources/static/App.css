@@ -17,6 +17,10 @@
     color: #00BFA5;
 }
 
+.checked {
+    color: #ffff00;
+}
+
 .button-go4me:hover{
     background: #00BFA5;
     color: black;
