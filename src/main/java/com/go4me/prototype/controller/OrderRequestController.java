@@ -2,6 +2,7 @@ package com.go4me.prototype.controller;
 
 
 import com.go4me.prototype.model.AdsOrderService;
+import com.go4me.prototype.model.OrderRequest;
 import com.go4me.prototype.model.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,12 @@ public class OrderRequestController {
      @RequestParam(name="long", required=true) double longitude, Model model){
         model.addAttribute("AdsOrder", adsOrderService.getAll());
         return "searchorder";
+    }
+
+    @GetMapping("/neworder")
+    public String newOrderView(OrderRequest order, Model model){
+        model.addAttribute("newOrder", order);
+        return "neworderview";
     }
 
 }

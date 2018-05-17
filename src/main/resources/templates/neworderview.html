@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>New Order</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <link href="/static/App.css" rel="stylesheet" media="screen" th:href="@{/App.css}"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div th:replace="/base/baseapp :: header" class="App-header">...</div>
+    <div class="container">
+        <a class="btn button-go4me" th:href="@{/}">Back!</a>
+        <h1 class="text-center display-1">New Order</h1>
+        <div class="d-flex justify-content-center">
+            <form class="form-horizontal" action="#" th:object="${newOrder}" th:action="@{/neworderview}"
+                  method="POST" style="margin: 10px">
+                <div class="form-group">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+                                <div th:each="detailedError : ${#fields.detailedErrors()}">
+                                    <span th:text="${detailedError.message}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<input th:field="*{id}" type="hidden"> TODO Fix it-->
+                        <div class="form-group" th:classappend="${#fields.hasErrors('maxTime')}? 'has-error'">
+                            <label>Max Time</label>
+                            <input type="date" class="form-control input-sm" th:field="*{maxTime}"
+                                   autofocus="autofocus" placeholder="MaxTime" required/>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+                            <label>Description</label>
+                            <input type="text" class="form-control input-sm" th:field="*{description}"
+                                   autofocus="autofocus" placeholder="Description" maxlength="240" required/>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('maxCost')}? 'has-error'">
+                            <label>Max Cost</label>
+                            <input type="number" class="form-control input-sm" th:field="*{maxCost}"
+                            autofocus="autofocus" placeholder="MaxCost" min="0" required/>
+                        </div>
+
+
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-sm button-go4me">Save</button>
+                    <a th:href="@{'/'}" class="btn btn-sm button-go4me">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

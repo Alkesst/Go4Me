@@ -43,7 +43,6 @@ public class UserController {
 
     @GetMapping("/register")
     public String registerPanelView(User newUser, Model model){
-    	model.addAttribute("users", userService.getAll());
         model.addAttribute("user", newUser);
         return "registerUser";
     }
