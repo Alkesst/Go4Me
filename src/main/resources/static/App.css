@@ -20,6 +20,19 @@
     color: #00BFA5;
 }
 
+.button-go4me-header{
+    border-color: #083931;
+    color: #083931;
+    background: #00BFA5;
+}
+
+.button-go4me-header:hover{
+    border-color: #67b8a3;
+    color: #000000;
+    background: #67b8a3;
+}
+
+
 .checked {
     color: #d7d700;
 }
