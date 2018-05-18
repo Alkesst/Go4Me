@@ -33,13 +33,18 @@
                 <div class="card-body col-auto">
              	   <div class="card-title">Rating: </div>
              	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}"><span class="fa fa-star checked"></span></a>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star checked"></span>
-					<span class="fa fa-star-half-o checked"></span>
-					<span class="fa fa-star-o checked"></span>
+             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=2'}"><span class="fa fa-star checked"></span></a>
+             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=3'}"><span class="fa fa-star checked"></span></a>
+             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=4'}"><span class="fa fa-star-half-o checked"></span></a>
+             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=5'}"><span class="fa fa-star-o checked"></span></a>
 
-                    <div th:text="${User.getRating()}" class="card-text"> average based on 254 reviews</div>
+                    <div id="rating" class="card-text"> </div>
                 </div>
+                
+                <script>
+                	document.getElementById("rating").innerHTML = "average based on " + + " reviews" ;
+                </script>
+                    
                 <div class="card-body col-auto">
                     <div class="card-title">Twitter: </div>
                     <div th:text="${User.getTwitterAccount()}" class="card-text"></div>
