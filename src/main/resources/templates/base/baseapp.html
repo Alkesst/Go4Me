@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:tr="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
@@ -14,8 +15,45 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header class="App-header" th:fragment="header">
-    Go4Me
+<header class="App-header text-right" th:fragment="header">
+    <div class="text-right" sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            Welcome! <b sec:authentication="name"></b>
+            <input class="btn button-go4me-header" type="submit" value="Logout" />
+        </form>
+    </div>
+    <div class="text-right" sec:authorize="isAnonymous()">
+        <a th:href="@{/login}" class="btn button-go4me-header">Login</a>
+        <a class="btn button-go4me-header" th:href="@{/register}">Register</a>
+    </div>
 </header>
+<nav class="navbar navbar-expand-lg navbar-light nav-go4me">
+    <a class="navbar-brand text-white nav-links-go4me" th:href="@{/}">Go4Me</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white" th:href="@{/profile}">Profile panel<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-white" th:href="@{/neworder}">Publish an Order</a>
+            </li>
+            <li>
+                <a class="nav-link text-white" th:href="@{/neworder}">Orders</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link"></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Users" aria-label="Search">
+            <button class="btn button-go4me-nav" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 </body>
 </html>

@@ -5,7 +5,10 @@
     /* color: #03DAC5; */
     color: black;
     text-align: center;
-    margin-bottom: 30px;
+}
+
+.nav-links-go4me:hover {
+    color: #adadad;
 }
 
 .container-background{
@@ -17,6 +20,19 @@
     color: #00BFA5;
 }
 
+.button-go4me-header{
+    border-color: #083931;
+    color: #083931;
+    background: #00BFA5;
+}
+
+.button-go4me-header:hover{
+    border-color: #67b8a3;
+    color: #000000;
+    background: #67b8a3;
+}
+
+
 .checked {
     color: #d7d700;
 }
@@ -26,7 +42,25 @@
     color: black;
 }
 
+.button-go4me-nav{
+    border-color: #00BFA5;
+    color: #00d8bc;
+    background: #128875;
+}
+
+.button-go4me-nav:hover{
+    background: #00BFA5;
+    color: black;
+}
+
+.checked {
+    color: #ffff00;
+}
 .card-panel {
     margin-top: 15px;
 }
 
+.nav-go4me {
+    margin-bottom: 30px;
+    background: #128875;
+}
