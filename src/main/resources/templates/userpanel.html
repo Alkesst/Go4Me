@@ -85,12 +85,8 @@
 
 					 </script>
 					
-					 La valoracion es de:
-					 <span th:text="${User.getRate()}"></span>
-					 con 
-					 <span th:text="${User.getNumberOfRatings()}"></span>
-					 valoraciones
-
+					<span th:text="'(' + ${User.getRate()} + '/5 -'"></span> 
+					<span th:text="${User.getNumberOfRatings()} + ' rates)'"></span>					 
                     
                 </div>       
                              
