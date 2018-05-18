@@ -34,7 +34,8 @@
 
 
 .checked {
-    color: #d7d700;
+    color: #d5d500;
+    letter-spacing: 1px;
 }
 
 .button-go4me:hover{

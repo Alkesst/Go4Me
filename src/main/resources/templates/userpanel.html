@@ -14,7 +14,7 @@
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body onLoad="setRate();">
     <div th:replace="/base/baseapp :: header" class="App-header">...</div>
     <div th:replace="/base/baseapp :: nav" class="nav-">...</div>
     <div class="container">
@@ -32,20 +32,68 @@
                     <div th:text="${User.getEmail()}" class="card-text"></div>
                 </div>
                 <div class="card-body col-auto">
-             	   <div class="card-title">Rating: </div>
-             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}"><span class="fa fa-star checked"></span></a>
-             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=2'}"><span class="fa fa-star checked"></span></a>
-             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=3'}"><span class="fa fa-star checked"></span></a>
-             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=4'}"><span class="fa fa-star-half-o checked"></span></a>
-             	    <a th:href="@{'/profile/' + ${User.getUserName()} + '?rating=5'}"><span class="fa fa-star-o checked"></span></a>
+             	    <div class="card-title">Rating: </div>
+					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}"><span id="estrella1"></span></a>
+					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=2'}"><span id="estrella2"></span></a>
+					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=3'}"><span id="estrella3"></span></a>
+					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=4'}"><span id="estrella4"></span></a>
+					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=5'}"><span id="estrella5"></span></a>
+					
+					 <script th:inline="javascript">
 
-                    <div id="rating" class="card-text"> </div>
-                </div>
-                
-                <script>
-                	document.getElementById("rating").innerHTML = "average based on " + + " reviews" ;
-                </script>
+    					var rate = /*[[${User.getRate()}]]*/ '0';
+						
+						if(rate >= 1){
+							document.getElementById("estrella1").className = "fa fa-star checked";
+						}else if(rate >= 0.5){
+							document.getElementById("estrella1").className = "fa fa-star-half-o checked";
+						}else{
+							document.getElementById("estrella1").className = "fa fa-star-o checked";
+						}
+						
+						if(rate >= 2){
+							document.getElementById("estrella2").className = "fa fa-star checked";
+						}else if(rate >= 1.5){
+							document.getElementById("estrella2").className = "fa fa-star-half-o checked";
+						}else{
+							document.getElementById("estrella2").className = "fa fa-star-o checked";
+						}
+						
+						if(rate >= 3){
+							document.getElementById("estrella3").className = "fa fa-star checked";
+						}else if(rate >= 2.5){
+							document.getElementById("estrella3").className = "fa fa-star-half-o checked";
+						}else{
+							document.getElementById("estrella3").className = "fa fa-star-o checked";
+						}
+						
+						if(rate >= 4){
+							document.getElementById("estrella4").className = "fa fa-star checked";
+						}else if(rate >= 3.5){
+							document.getElementById("estrella4").className = "fa fa-star-half-o checked";
+						}else{
+							document.getElementById("estrella4").className = "fa fa-star-o checked";
+						}
+						
+						if(rate == 5){
+							document.getElementById("estrella5").className = "fa fa-star checked";
+						}else if(rate >= 4.5){
+							document.getElementById("estrella5").className = "fa fa-star-half-o checked";
+						}else{
+							document.getElementById("estrella5").className = "fa fa-star-o checked";
+						}
+
+					 </script>
+					
+					 La valoracion es de:
+					 <span th:text="${User.getRate()}"></span>
+					 con 
+					 <span th:text="${User.getNumberOfRatings()}"></span>
+					 valoraciones
+
                     
+                </div>       
+                             
                 <div class="card-body col-auto">
                     <div class="card-title">Twitter: </div>
                     <div th:text="${User.getTwitterAccount()}" class="card-text"></div>
@@ -73,6 +121,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>		
 </body>
 </html>

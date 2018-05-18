@@ -3,6 +3,8 @@ package com.go4me.prototype.model;
 
 import javax.persistence.*;
 
+import org.springframework.security.web.server.MatcherSecurityWebFilterChain;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -168,6 +170,10 @@ public class User {
 
     public int getNumberOfRatings() {
         return numberOfRatings;
+    }
+    
+    public double getRate() {
+    	return (double)Math.round(rating *100 / numberOfRatings) / 100;
     }
 
     public void setNumberOfRatings(int numberOfRatings) {
