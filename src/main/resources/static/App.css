@@ -64,4 +64,8 @@
 .nav-go4me {
     margin-bottom: 30px;
     background: #128875;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }

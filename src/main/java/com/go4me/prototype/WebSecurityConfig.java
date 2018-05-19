@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // permitimos estas urls sin autenticacion
                 // console se usa para poder acceder a la pagina de configuracion de la base de
                 // datos
-                .antMatchers("/", "/console/**", "/register", "/App.css").permitAll().anyRequest().authenticated()
+                .antMatchers("/", "/console/**", "/register", "/App.css", "/images/**").permitAll().anyRequest().authenticated()
 
                 .and()
 

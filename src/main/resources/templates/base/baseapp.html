@@ -15,8 +15,12 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header class="App-header text-right" th:fragment="header">
-    <div class="text-right" sec:authorize="isAuthenticated()">
+<header class="App-header text-right row" th:fragment="header">
+    <div class="text-left col">
+        <img src="/images/crazylegs.png" width="5%" class="text-left">
+        <a th:href="@{/}" class="">Go4Me</a>
+    </div>
+    <div class="text-right col-sm" sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">
             Welcome! <b sec:authentication="name"></b>
             <input class="btn button-go4me-header" type="submit" value="Logout" />
