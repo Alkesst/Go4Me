@@ -51,19 +51,11 @@ public class OrderRequestController {
         return "orderpanel";
     }
 
-    @PostMapping("/order/7")
-    public String lifeHacks(Model model){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        OrderRequest or = new OrderRequest(user, "toString por defecto",
-                15, 15, "May", "17:40");
-        orderService.add(or);
-        return orderPanel(or.getID(), model);
-    }
-
     @PostMapping("/neworder")
     public RedirectView registerNewUser(@Valid OrderRequest neworder, BindingResult result, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         neworder.setPublishedBy(user);
+        neworder.setBuyer(user);
         orderService.add(neworder);
         model.addAttribute("create", true);
         return new RedirectView("/order/" + neworder.getID());
