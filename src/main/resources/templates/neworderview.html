@@ -19,7 +19,7 @@
         <a class="btn button-go4me" th:href="@{/}">Back!</a>
         <h1 class="text-center display-1">New Order</h1>
         <div class="d-flex justify-content-center">
-            <form class="form-horizontal" action="#" th:object="${newOrder}" th:action="@{'/order/7'}"
+            <form class="form-horizontal" action="#" th:object="${newOrder}" th:action="@{/neworder}"
                   method="POST" style="margin: 10px">
                 <div class="form-group">
                     <fieldset>
@@ -33,23 +33,23 @@
                         <div class="form-group" th:classappend="${#fields.hasErrors('Day')}? 'has-error'">
                             <label>Day</label>
                             <input type="number" class="form-control input-sm" th:field="*{day}"
-                                   autofocus="autofocus" placeholder="1" required min="1" max="31" />
+                                   autofocus="autofocus" placeholder="Day" required min="1" max="31" />
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('Month')}? 'has-error'">
                             <label>Month</label>
-                            <select class="exampleSelect1" field="*{month}">
-                                <option>January</option>
-                                <option>February</option>
-                                <option>March</option>
-                                <option>April</option>
-                                <option>May</option>
-                                <option>June</option>
-                                <option>July</option>
-                                <option>August</option>
-                                <option>September</option>
-                                <option>October</option>
-                                <option>November</option>
-                                <option>December</option>
+                            <select class="exampleSelect1" th:field="*{month}">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
                             </select>
                         </div>
                         <div class="form-group" th:classappend="${#fields.hasErrors('Hour')}? 'has-error'">

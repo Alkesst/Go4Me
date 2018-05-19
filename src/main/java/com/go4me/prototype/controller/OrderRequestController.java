@@ -60,4 +60,13 @@ public class OrderRequestController {
         return orderPanel(or.getID(), model);
     }
 
+    @PostMapping("/neworder")
+    public RedirectView registerNewUser(@Valid OrderRequest neworder, BindingResult result, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        neworder.setPublishedBy(user);
+        orderService.add(neworder);
+        model.addAttribute("create", true);
+        return new RedirectView("/order/" + neworder.getID());
+    }
+
 }
