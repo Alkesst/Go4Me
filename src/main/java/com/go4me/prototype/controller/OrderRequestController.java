@@ -29,10 +29,9 @@ public class OrderRequestController {
     @Autowired
     AdsOrderService adsOrderService;
 
-    @GetMapping("/search")
-    public String searchOrderRequests(@RequestParam(name="lat", required=true) double latitude,
-     @RequestParam(name="long", required=true) double longitude, Model model){
-        model.addAttribute("AdsOrder", adsOrderService.getAll());
+    @GetMapping("/searchorders")
+    public String searchOrderRequests(Model model){
+        model.addAttribute("OrderRequest", orderService.getAll());
         return "searchorder";
     }
 
