@@ -15,23 +15,22 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header class="App-header text-right row" th:fragment="header">
-    <div class="text-left col">
+<header class="App-header d-flex justify-content-end" th:fragment="header">
+    <!--<div class="text-left col">
         <img src="/images/crazylegs.png" width="5%" class="text-left">
         <a th:href="@{/}" class="nav-links-go4me">Go4Me</a>
-    </div>
-    <div class="text-right col-sm" sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
+    </div>-->
+    <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
             Welcome! <b sec:authentication="name"></b>
-            <input class="btn button-go4me-header" type="submit" value="Logout" />
-        </form>
-    </div>
+        <input class="btn button-go4me-header" type="submit" value="Logout" />
+    </form>
     <div class="text-right" sec:authorize="isAnonymous()">
         <a th:href="@{/login}" class="btn button-go4me-header">Login</a>
         <a class="btn button-go4me-header" th:href="@{/register}">Register</a>
     </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light nav-go4me">
+    <img src="/images/crazylegs.png" width="2.5%">
     <a class="navbar-brand text-white nav-links-go4me" th:href="@{/}">Go4Me</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

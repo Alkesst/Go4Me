@@ -15,10 +15,49 @@
 <body>
     <div th:replace="/base/baseapp :: header" class="App-header">...</div>
     <div th:replace="/base/baseapp :: nav" class="nav-">...</div>
-    <div class="container text-center">
-        <div>
-            Go4Me is an app for lazy people
+    <div class="position-relative overflow-hidden p-3 p-md-5 bg-light go4me-stock">
+        <div class="col-md-3"></div>
+        <div class="col-md-5 p-lg-5 my-5 text-center">
+            <h2><b>What is Go4Me?</b></h2>
+            <p>
+                Go4Me is a web app which main target is to order errands to other users and pay them for
+                bringing them to your home.
+            </p>
         </div>
     </div>
+    <div class="d-md-flex flex-md-equal w-100">
+        <div class="bg-dark pt-3 px-3 pt-md-5 pb-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Go4Me is environment friendly</h2>
+                <p class="lead">We help the nature reducing the Co2 emisions making people to errand things to others</p>
+            </div>
+            <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 21px 21px;
+                    background: url(/images/8.jpeg) no-repeat; background-size: cover">
+            </div>
+        </div>
+        <div class="bg-light pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Go4Me is solidary</h2>
+                <p class="lead">We help handicaped people with discounts in their orders</p>
+            </div>
+            <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 21px 21px;
+                background: url(/images/9.jpg) no-repeat; background-size: cover">
+            </div>
+        </div>
+    </div>
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md">
+                <small class="d-block mb-3 text-muted">Made with love by Go4Me developer Team © 2018</small>
+            </div>
+            <div class="col-6 col-md ">
+                <h5 class="d-flex justify-content-end">Source Code</h5>
+                <ul class="list-unstyled text-small d-flex justify-content-end">
+                    <li><a class="text-muted" href="https://github.com/Alkesst/Go4Me"
+                    target="_blank" rel="noreferrer noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

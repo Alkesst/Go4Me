@@ -12,7 +12,7 @@
 }
 
 .nav-links-go4me:hover {
-    color: #adadad;
+    color: white;
 }
 
 .container-background{
@@ -43,15 +43,15 @@
 }
 
 .button-go4me-header{
-    border-color: #083931;
+    border-color: #1D8775;
     color: #083931;
     background: #00BFA5;
 }
 
 .button-go4me-header:hover{
-    border-color: #67b8a3;
-    color: #000000;
-    background: #67b8a3;
+    border-color: #1D8775;
+    color: white;
+    background: #1D8775;
 }
 .button-go4me-nav{
     border-color: #00BFA5;
@@ -86,6 +86,25 @@
     z-index: 10;
 }
 
+.go4me-stock {
+    background: url(/images/7.jpg) no-repeat center;
+    background-size: cover;
+    height: calc(100vh - 200px);
+    margin-top: -30px;
+}
+
+.flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
+
+.overflow-hidden {overflow: hidden;}
 
 /*
  * ADAPTATION GET FROM http://getbootstrap.com/docs/4.1/examples/floating-labels/

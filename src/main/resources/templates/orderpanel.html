@@ -21,7 +21,7 @@
     <div style="margin-right: auto">
         <h1 class="text-center">Order Info</h1>
         <a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a>
-        <div class="container row card text-black container-background card-panel">
+        <div class="container row card text-black container-background card-panel mb-5">
             <div class="card-body col-auto">
                 <div class="card-title ">ID</div>
                 <div th:text="${Order.getID()}" class="card-text"></div>
