@@ -16,23 +16,19 @@
 <div th:replace="/base/baseapp :: header" class="App-header">...</div>
 <div th:replace="/base/baseapp :: nav" class="nav-">...</div>
 <div class="container">
-    <form th:action="@{/login}" method="post" class="text-center">
-        <div>
-            <label> Email: <input type="text" name="username" /></label>
-        </div>
-        <div>
-            <label> Contraseña: <input type="password" name="password" /></label>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <a class="btn button-go4me" href="/" role="button">Return</a>
+    <div class="d-flex justify-content-center">
+        <form th:action="@{/login}" method="post">
+            <div class="form-label-group">
+                <input class="form-control" type="email" name="username" placeholder="Email" id="inputEmail"/>
+                <label for="inputEmail"> Email </label>
             </div>
-            <div class="col-auto">
-                <input class="btn button-go4me" type="submit" value="Sign In"/>
+            <div class="form-label-group">
+                <input class="form-control" type="password" name="password" placeholder="Email" id="password"/>
+                <label for="password"> Password </label>
             </div>
-        </div>
-    </form>
+                <input class="btn button-go4me btn-block" type="submit" value="Sign In"/>
+        </form>
+    </div>
 </div>
-
 </body>
 </html>

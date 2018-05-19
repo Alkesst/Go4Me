@@ -22,7 +22,7 @@
         <div style="margin-right: auto">
             <h1 class="text-center">User Info</h1>
             <a th:href="@{'/profile/config/'}" th:if="${myUser}" class="btn button-go4me col-sm-3">Edit profile!</a>
-            <div class="container row card text-black container-background card-panel">
+            <div class="container row card text-black container-background card-panel mb-3">
                 <div class="card-body col-auto">
                     <div class="card-title ">Username: </div>
                     <div th:text="${User.getUserName()}" class="card-text"></div>
@@ -75,7 +75,7 @@
 							document.getElementById("estrella4").className = "fa fa-star-o checked";
 						}
 						
-						if(rate == 5){
+						if(rate === 5){
 							document.getElementById("estrella5").className = "fa fa-star checked";
 						}else if(rate >= 4.5){
 							document.getElementById("estrella5").className = "fa fa-star-half-o checked";

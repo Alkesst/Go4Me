@@ -18,7 +18,7 @@
 <header class="App-header text-right row" th:fragment="header">
     <div class="text-left col">
         <img src="/images/crazylegs.png" width="5%" class="text-left">
-        <a th:href="@{/}" class="">Go4Me</a>
+        <a th:href="@{/}" class="nav-links-go4me">Go4Me</a>
     </div>
     <div class="text-right col-sm" sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">
@@ -47,7 +47,7 @@
                 <a class="nav-link text-white" th:href="@{/neworder}">Publish an Order</a>
             </li>
             <li>
-                <a class="nav-link text-white" th:href="@{/neworder}">Orders</a>
+                <a class="nav-link text-white" th:href="@{/searchorders}">Orders</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link"></a>
