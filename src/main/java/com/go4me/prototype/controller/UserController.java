@@ -29,7 +29,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/profile/{username}")
-    public String userPanelView(@PathVariable("username") String username,
+    public String userPanelView(@RequestParam(name="username") String username,
                                 @RequestParam(name="rating", required=false, defaultValue="empty") String rating, Model model) {
         User user = userService.searchByUserName(username);
         if (!rating.equals("empty")){
@@ -70,5 +70,4 @@ public class UserController {
         model.addAttribute("User", userService.searchByUserName(user.getUserName()));
         return "userpanel";
     }
-
 }

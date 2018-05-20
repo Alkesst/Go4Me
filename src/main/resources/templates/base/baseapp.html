@@ -52,8 +52,9 @@
                 <a class="nav-link"></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Users" aria-label="Search">
+
+        <form class="form-inline my-2 my-lg-0" th:action="@{'/profile/' + ${'username'}}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Users" th:name="username">
             <button class="btn button-go4me-nav" type="submit">Search</button>
         </form>
     </div>

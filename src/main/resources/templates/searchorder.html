@@ -43,7 +43,7 @@
                         <td>
                             <a th:text="${order.getPublishedBy().userName}" href="/profile/jesuspa98"></a>
                         </td>
-                        <td><a class="btn button-go4me" th:href="@{/order/7}">View Order</a></td>
+                        <td><a class="btn button-go4me" th:href="@{'/order/' + ${order.getID()}}">View Order</a></td>
                     </tr>
                 </tbody>
             </table>
