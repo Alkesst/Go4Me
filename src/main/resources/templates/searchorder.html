@@ -29,7 +29,7 @@
                     <th>Day</th>
                     <th>Month</th>
                     <th>PublishedBy</th>
-                    <th>Operations</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,7 @@
                         <td>
                             <a th:text="${order.getPublishedBy().userName}" href="/profile/jesuspa98"></a>
                         </td>
-                        <td><a class="btn button-go4me" th:href="@{'/order/' + ${order.getID()}}">View Order</a></td>
+                        <td><a class="btn button-go4me btn-sm" th:href="@{'/order/' + ${order.getID()}}">View Order</a></td>
                     </tr>
                 </tbody>
             </table>

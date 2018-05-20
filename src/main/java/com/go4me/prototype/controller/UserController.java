@@ -40,10 +40,9 @@ public class UserController {
         return "userpanel";
     }
 
-    @GetMapping("/users/")
+    @GetMapping("/users")
     public String searchUsers(@RequestParam(name = "username", required = true) String username, Model model){
-
-        model.addAttribute("User", userService.searchByUserName(username));
+        model.addAttribute("User", userService.findUsersByUsername(username));
         return "searchUser";
     }
 

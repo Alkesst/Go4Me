@@ -6,6 +6,8 @@ out/
 .gradle
 /build/
 bin/
+*.db
+
 
 # Ignore Gradle GUI config
 gradle-app.setting

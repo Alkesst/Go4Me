@@ -31,6 +31,7 @@
                 <th>City</th>
                 <th>Zip Code</th>
                 <th>Country</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -44,7 +45,7 @@
                 <td th:text="${User.getLocalization().getCity()}"></td>
                 <td th:text="${User.getLocalization().getZipCode()}"></td>
                 <td th:text="${User.getLocalization().getCountry()}"></td>
-                <td><a class="btn button-go4me" th:href="@{'/profile/' + ${User.getUserName()}}">Go Profile</a></td>
+                <td><a class="btn button-go4me btn-sm" th:href="@{'/profile/' + ${User.getUserName()}}">Go Profile</a></td>
             </tr>
             </tbody>
         </table>

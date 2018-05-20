@@ -1,6 +1,5 @@
-2018-05-16 11:41:32 database: flush
-org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/jesuspa98/Escritorio/Universidad/Segundo/Cuatrimestre_2/IIS/Go4Me/database.mv.db [1.4.197/7]"
-General error: "java.lang.IllegalStateException: The file is locked: nio:/home/jesuspa98/Escritorio/Universidad/Segundo/Cuatrimestre_2/IIS/Go4Me/database.mv.db [1.4.197/7]" [50000-197]
+2018-05-20 14:27:21 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/alec/Documents/Universidad/Segundo/Segundo/Intro al Software/Go4Me/database.mv.db [1.4.197/7]" [50000-197]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:307)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -32,14 +31,13 @@ General error: "java.lang.IllegalStateException: The file is locked: nio:/home/j
 	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:699)
 	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:685)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: org.h2.jdbc.JdbcSQLException: Error General : "java.lang.IllegalStateException: The file is locked: nio:/home/jesuspa98/Escritorio/Universidad/Segundo/Cuatrimestre_2/IIS/Go4Me/database.mv.db [1.4.197/7]"
-General error: "java.lang.IllegalStateException: The file is locked: nio:/home/jesuspa98/Escritorio/Universidad/Segundo/Cuatrimestre_2/IIS/Go4Me/database.mv.db [1.4.197/7]" [50000-197]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/Users/alec/Documents/Universidad/Segundo/Segundo/Intro al Software/Go4Me/database.mv.db [1.4.197/7]" [50000-197]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
 	... 34 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/jesuspa98/Escritorio/Universidad/Segundo/Cuatrimestre_2/IIS/Go4Me/database.mv.db [1.4.197/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/alec/Documents/Universidad/Segundo/Segundo/Intro al Software/Go4Me/database.mv.db [1.4.197/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:870)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
