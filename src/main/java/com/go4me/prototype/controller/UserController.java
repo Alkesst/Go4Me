@@ -15,12 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @SuppressWarnings("unused")
 @Controller
@@ -29,7 +27,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/profile/{username}")
-    public String userPanelView(@RequestParam(name="username") String username,
+    public String userPanelView(@PathVariable("username") String username,
                                 @RequestParam(name="rating", required=false, defaultValue="empty") String rating, Model model) {
         User user = userService.searchByUserName(username);
         if (!rating.equals("empty")) {
@@ -40,6 +38,13 @@ public class UserController {
         model.addAttribute("myUser", false);
         model.addAttribute("User", user);
         return "userpanel";
+    }
+
+    @GetMapping("/users/")
+    public String searchUsers(@RequestParam(name = "username", required = true) String username, Model model){
+
+        model.addAttribute("User", userService.searchByUserName(username));
+        return "searchUser";
     }
 
     @GetMapping("profile/config/")
