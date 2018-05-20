@@ -32,7 +32,7 @@ public class UserController {
     public String userPanelView(@RequestParam(name="username") String username,
                                 @RequestParam(name="rating", required=false, defaultValue="empty") String rating, Model model) {
         User user = userService.searchByUserName(username);
-        if (!rating.equals("empty")){
+        if (!rating.equals("empty")) {
             user.setRating(user.getRating() + Double.parseDouble(rating));
             user.setNumberOfRatings(user.getNumberOfRatings() + 1);
             userService.update(user);

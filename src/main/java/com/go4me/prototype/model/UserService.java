@@ -1,12 +1,11 @@
 package com.go4me.prototype.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -67,4 +66,11 @@ public class UserService {
     public User searchByid(Long id){ return repository.findByid(id); }
 
     public User getUserByID(Long id) { return repository.getOne(id); }
+
+    public List<User> findUsersByUsername(String queryValue) {
+        return this.getAll().stream()
+                .filter(u -> u.getUserName().toLowerCase().contains(queryValue.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
 }
