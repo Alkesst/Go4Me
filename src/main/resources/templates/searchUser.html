@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:tr="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <link href="../static/App.css" rel="stylesheet" media="screen" th:href="@{/App.css}" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="/base/baseapp :: header" class="App-header">...</div>
+<div th:replace="/base/baseapp :: nav" class="nav-">...</div>
+<div class="container">
+    <a class="btn button-go4me" th:href="@{/}">Back!</a>
+    <div style="margin-right: auto">
+        <h1 class="text-center">Users</h1>
+        <table
+                class="table table-sm table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Twitter Account</th>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="User : ${User}">
+                <td th:text="${User.getId()}"></td>
+                <td th:text="${User.getUserName()}"></td>
+                <td th:text="${User.getEmail()}"></td>
+                <td th:text="${User.getTwitterAccount()}"></td>
+                <td th:text="${User.getLocalization().getAddress1()}"></td>
+                <td th:text="${User.getLocalization().getAddress2()}"></td>
+                <td th:text="${User.getLocalization().getCity()}"></td>
+                <td th:text="${User.getLocalization().getZipCode()}"></td>
+                <td th:text="${User.getLocalization().getCountry()}"></td>
+                <td><a class="btn button-go4me" th:href="@{'/profile/' + ${User.getUserName()}}">Go Profile</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
