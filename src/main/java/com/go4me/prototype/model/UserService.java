@@ -13,7 +13,7 @@ public class UserService {
     UserRepository repository;
     @Autowired
     PasswordEncoder passwordEncoder;
-    
+
     public void register(User user) {
     	user.setPassword(passwordEncoder.encode(user.getPassword()));
     	this.add(user);
@@ -25,19 +25,17 @@ public class UserService {
 
     public void update(User user){
         User u = repository.getOne(user.getId());
-        u.setRating(user.getRating());
-        u.setBanned(user.isBanned());
-        u.setBlockedUsers(user.getBlockedUsers());
-        u.setEmail(user.getEmail());
-        u.setTwitterAccount(user.getTwitterAccount());
-        u.setPremium(user.isPremium());
-        u.setUserName(user.getUserName());
-        u.setLocalization(user.getLocalization());
-        u.setId(user.getId());
         u.setNumberOfRatings(user.getNumberOfRatings());
-        u.setPassword(user.getPassword());
-        u.setPublishedOrderRequests(user.getPublishedOrderRequests());
+        u.setRating(user.getRating());
+        u.setIsPremium(user.getIsPremium());
+        u.setBanned(user.getIsBanned());
+        u.setUserName(user.getUserName());
+        u.setEmail(user.getEmail());
+        u.setBlockedUsers(user.getBlockedUsers());
+        u.setTwitterAccount(user.getTwitterAccount());
+        u.setLocalization(user.getLocalization());
         u.setPublishedAds(user.getPublishedAds());
+        u.setPublishedOrderRequests(user.getPublishedOrderRequests());
         repository.saveAndFlush(u);
     }
 

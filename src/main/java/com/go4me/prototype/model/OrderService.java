@@ -1,5 +1,6 @@
 package com.go4me.prototype.model;
 
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
@@ -26,6 +27,10 @@ public class OrderService{
     o.setMaxCost(orderRequest.getMaxCost());
 
     repository.saveAndFlush(o);
+  }
+
+  public void delete(OrderRequest order){
+
   }
 
   public boolean timeout(OrderRequest order){
