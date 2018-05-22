@@ -45,6 +45,6 @@ public class UserTesting {
     public void testPasswordCypher(){
         User user = new User();
         user.setPassword(PASSWORD);
-        assertNotEquals(PASSWORD, userService.cypherPassword(PASSWORD));
+        assertNotEquals(user.getPassword(), userService.cypherPassword(PASSWORD));
     }
 }
