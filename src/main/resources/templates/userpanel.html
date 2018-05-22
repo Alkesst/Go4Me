@@ -14,109 +14,114 @@
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body onLoad="setRate();">
-    <div th:replace="/base/baseapp :: header" class="App-header">...</div>
-    <div th:replace="/base/baseapp :: nav" class="nav-">...</div>
-    <div class="container">
+<body>
+<div th:replace="/base/baseapp :: header" class="App-header">...</div>
+<div th:replace="/base/baseapp :: nav" class="nav-">...</div>
+<div class="container">
+    <div class="btn-group mb-5">
         <a class="btn button-go4me" th:href="@{/}">Back!</a>
-        <div style="margin-right: auto">
-            <h1 class="text-center">User Info</h1>
-            <a th:href="@{'/profile/config/'}" th:if="${myUser}" class="btn button-go4me col-sm-3">Edit profile!</a>
-            <div class="container row card text-black container-background card-panel mb-5">
-                <div class="card-body col-auto">
-                    <div class="card-title ">Username: </div>
-                    <div th:text="${User.getUserName()}" class="card-text"></div>
+        <a th:href="@{'/profile/config/'}" th:if="${myUser}" class="btn button-go4me">Edit profile!</a>
+    </div>
+    <div class="row bg-dark text-white"  style="border-radius: 21px 21px 21px 21px">
+        <div class="col-md-12 pt-3 px-3 pt-md-5 pb-md-5 px-md-5">
+            <h3>User Info</h3>
+            <div class="row">
+                <div class="col-md-4 row">
+                    <div class="col-auto">Username:</div>
+                    <div th:text="${User.getUserName()}" class="card-text col-auto"></div>
                 </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">Email: </div>
-                    <div th:text="${User.getEmail()}" class="card-text"></div>
+                <div class="col-md-4 row">
+                    <div class="card-title col-auto">Email: </div>
+                    <div th:text="${User.getEmail()}" class="card-text col-auto"></div>
                 </div>
-                <div class="card-body col-auto">
-             	    <div class="card-title">Rating: </div>
-					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}"><span id="estrella1"></span></a>
-					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=2'}"><span id="estrella2"></span></a>
-					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=3'}"><span id="estrella3"></span></a>
-					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=4'}"><span id="estrella4"></span></a>
-					<a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=5'}"><span id="estrella5"></span></a>
-					
-					 <script th:inline="javascript">
+                <div class="col-md-4 row mb-2">
+                    <div class="text-black">
+                        <div class="col-auto row">
+                            <div class="card-title col-auto">Rating: </div>
+                            <a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=1'}" class="col"><span id="estrella1"></span></a>
+                            <a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=2'}" class="col"><span id="estrella2"></span></a>
+                            <a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=3'}" class="col"><span id="estrella3"></span></a>
+                            <a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=4'}" class="col"><span id="estrella4"></span></a>
+                            <a  th:href="@{'/profile/' + ${User.getUserName()} + '?rating=5'}" class="col"><span id="estrella5"></span></a>
 
-    					var rate = /*[[${User.getRate()}]]*/ '0';
-						
-						if(rate >= 1){
-							document.getElementById("estrella1").className = "fa fa-star checked";
-						}else if(rate >= 0.5){
-							document.getElementById("estrella1").className = "fa fa-star-half-o checked";
-						}else{
-							document.getElementById("estrella1").className = "fa fa-star-o checked";
-						}
-						
-						if(rate >= 2){
-							document.getElementById("estrella2").className = "fa fa-star checked";
-						}else if(rate >= 1.5){
-							document.getElementById("estrella2").className = "fa fa-star-half-o checked";
-						}else{
-							document.getElementById("estrella2").className = "fa fa-star-o checked";
-						}
-						
-						if(rate >= 3){
-							document.getElementById("estrella3").className = "fa fa-star checked";
-						}else if(rate >= 2.5){
-							document.getElementById("estrella3").className = "fa fa-star-half-o checked";
-						}else{
-							document.getElementById("estrella3").className = "fa fa-star-o checked";
-						}
-						
-						if(rate >= 4){
-							document.getElementById("estrella4").className = "fa fa-star checked";
-						}else if(rate >= 3.5){
-							document.getElementById("estrella4").className = "fa fa-star-half-o checked";
-						}else{
-							document.getElementById("estrella4").className = "fa fa-star-o checked";
-						}
-						
-						if(rate === 5){
-							document.getElementById("estrella5").className = "fa fa-star checked";
-						}else if(rate >= 4.5){
-							document.getElementById("estrella5").className = "fa fa-star-half-o checked";
-						}else{
-							document.getElementById("estrella5").className = "fa fa-star-o checked";
-						}
+                            <script th:inline="javascript">
 
-					 </script>
-					
-					<span th:text="'(' + ${User.getRate()} + '/5 -'"></span> 
-					<span th:text="${User.getNumberOfRatings()} + ' rates)'"></span>					 
-                    
-                </div>       
-                             
-                <div class="card-body col-auto">
-                    <div class="card-title">Twitter: </div>
-                    <div th:text="${User.getTwitterAccount()}" class="card-text"></div>
+                                var rate = /*[[${User.getRate()}]]*/ '0';
+
+                                if(rate >= 1){
+                                    document.getElementById("estrella1").className = "fa fa-star checked";
+                                }else if(rate >= 0.5){
+                                    document.getElementById("estrella1").className = "fa fa-star-half-o checked";
+                                }else{
+                                    document.getElementById("estrella1").className = "fa fa-star-o checked";
+                                }
+
+                                if(rate >= 2){
+                                    document.getElementById("estrella2").className = "fa fa-star checked";
+                                }else if(rate >= 1.5){
+                                    document.getElementById("estrella2").className = "fa fa-star-half-o checked";
+                                }else{
+                                    document.getElementById("estrella2").className = "fa fa-star-o checked";
+                                }
+
+                                if(rate >= 3){
+                                    document.getElementById("estrella3").className = "fa fa-star checked";
+                                }else if(rate >= 2.5){
+                                    document.getElementById("estrella3").className = "fa fa-star-half-o checked";
+                                }else{
+                                    document.getElementById("estrella3").className = "fa fa-star-o checked";
+                                }
+
+                                if(rate >= 4){
+                                    document.getElementById("estrella4").className = "fa fa-star checked";
+                                }else if(rate >= 3.5){
+                                    document.getElementById("estrella4").className = "fa fa-star-half-o checked";
+                                }else{
+                                    document.getElementById("estrella4").className = "fa fa-star-o checked";
+                                }
+
+                                if(rate === 5){
+                                    document.getElementById("estrella5").className = "fa fa-star checked";
+                                }else if(rate >= 4.5){
+                                    document.getElementById("estrella5").className = "fa fa-star-half-o checked";
+                                }else{
+                                    document.getElementById("estrella5").className = "fa fa-star-o checked";
+                                }
+
+                            </script>
+
+                            <!--<span th:text="'(' + ${User.getRate()} + '/5 -'"></span>
+                            <span th:text="${User.getNumberOfRatings()} + ' rates)'"></span>-->
+
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">Address 1: </div>
-                    <div th:text="${User.getLocalization().getAddress1()}" class="card-text"></div>
+                <div class="col-md-4 row">
+                    <div class="card-title col-auto">Twitter: </div>
+                    <div th:text="${User.getTwitterAccount()}" class="card-text col-auto"></div>
                 </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">Address 2: </div>
+                <div class="col-md-4 row">
+                    <div class="card-title col-auto">Address 1: </div>
+                    <div th:text="${User.getLocalization().getAddress1()}" class="card-text col-auto"></div>
+                </div>
+                <div class="col-md-4 row mb-2">
+                    <div class="card-title col-auto">Address 2: </div>
                     <div th:text="${User.getLocalization().getAddress2() != null} ?
-                    ${User.getLocalization().getAddress2()} : 'Empty value'" class="card-text"></div>
+                            ${User.getLocalization().getAddress2()} : 'Empty value'" class="card-text col-auto"></div>
                 </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">City: </div>
-                    <div th:text="${User.getLocalization().getCity()}" class="card-text"></div>
+                <div class="col-md-4 row">
+                    <div class="card-title col-auto">Country: </div>
+                    <div th:text="${User.getLocalization().getCountry()}" class="card-text col-auto"></div>
                 </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">Country: </div>
-                    <div th:text="${User.getLocalization().getCountry()}" class="card-text"></div>
-                </div>
-                <div class="card-body col-auto">
-                    <div class="card-title">ZIP Code: </div>
-                    <div th:text="${User.getLocalization().getZipCode()}" class="card-text"></div>
+                <div class="col-md-4 row">
+                    <div class="card-title col-auto">ZIP Code: </div>
+                    <div th:text="${User.getLocalization().getZipCode()}" class="card-text col-auto"></div>
                 </div>
             </div>
         </div>
-    </div>		
+        <div class="card-body col-auto">
+        </div>
+    </div>
+</div>
 </body>
 </html>
