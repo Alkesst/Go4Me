@@ -23,6 +23,9 @@
         <form th:if="${isMyOrder}" th:action="@{'/order/' + ${Order.getID()}}" method="POST">
             <button type="submit" class="btn button-go4me col-sm-3">Delete Order!</button>
         </form>
+        <!--form th:if="${!isMyOrder}" th:action="@{'/searchorders'}" method="POST">
+            <button type="submit" class="btn button-go4me col-sm-3">Assign Order!</button>
+        </form> TODO Fix assign order
         <!--a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a-->
         <div class="container row card text-black container-background card-panel mb-5">
             <div class="card-body col-auto">
@@ -31,7 +34,13 @@
             </div>
             <div class="card-body col-auto">
                 <div class="card-title ">Published By</div>
-                <a th:text="${Order.publishedBy.userName}" href="/profile/jesuspa98" class="card-text"></a>
+                <a th:text="${Order.getPublishedBy().getUserName()}" class="card-text"
+                   th:href="@{'/profile/' + ${Order.getPublishedBy().getUserName()}}"></a>
+            </div>
+            <div class="card-body col-auto">
+                <div class="card-title">Assigned to</div>
+                <a th:text="${Order.getBuyer() != null} ? ${Order.getBuyer().getUserName()} : 'Nobody'"
+                   class="card-text"></a>
             </div>
             <div class="card-body col-auto">
                 <div class="card-title ">Hour</div>

@@ -29,9 +29,12 @@ public class OrderService{
         repository.saveAndFlush(o);
     }
 
-  public void deleteOrder(OrderRequest order){
-        repository.delete(order);
-  }
+  /* TODO Fix assign order
+  public void assignOrder(OrderRequest order, User user){
+        order.setBuyer(user);
+        order.setSeller(order.getPublishedBy());
+        repository.saveAndFlush(order);
+  }*/
 
   public boolean timeout(OrderRequest order){
     java.util.Date currentDate= new Date();

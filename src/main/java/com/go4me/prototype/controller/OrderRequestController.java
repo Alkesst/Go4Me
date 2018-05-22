@@ -52,9 +52,16 @@ public class OrderRequestController {
 
     @PostMapping("/order/{id}")
     public RedirectView deleteOrder(@Valid OrderRequest order, Model model){
-        orderService.deleteOrder(order);
+        orderService.delete(order);
         return new RedirectView("/searchorders");
     }
+
+    /*TODO Fix assign user
+    @PostMapping("/searchorders")
+    public RedirectView assignOrder(@Valid OrderRequest order, @Valid User user, Model model){
+        orderService.assignOrder(order, user);
+        return new RedirectView("/searchorders");
+    }*/
 
     @PostMapping("/neworder")
     public RedirectView registerNewUser(@Valid OrderRequest neworder, BindingResult result, Model model) {
