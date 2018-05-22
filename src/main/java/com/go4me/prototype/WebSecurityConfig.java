@@ -56,17 +56,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 0,"@paco", local, new ArrayList<>(),
                 "$2a$04$mhVuX7/zGzhPu7xKCrqY8e7M0RkORqZ4QB/4rCEgYQNddyt1mAKZK");
         Localization local2 = new Localization("calle", "ciudad", "pais", 7);
+        user.setId(10L);
         User user2 = new User(5.0, 0, "pepe", "pepe@uma.es", new ArrayList<>(),
                 0, "@pepe", local2, new ArrayList<>(),
                 "$2a$04$/p9SxKa0PtQjO3Oa649E9uPxLemqprhf05ak9lAX0kvd29znwEhhO");
+        user2.setId(2L);
         // la contraseña es test (encriptada usando bcrypt)
         // https://www.dailycred.com/article/bcrypt-calculator
-        if (userRepository.findByEmail(user.getEmail()) == null) {
-            userRepository.save(user);
-        }
-        if (userRepository.findByEmail(user2.getEmail()) == null) {
-            userRepository.save(user2);
-        }
+        userRepository.save(user);
+        userRepository.save(user2);
     }
 
     /*

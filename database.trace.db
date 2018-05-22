@@ -245,3 +245,27 @@ org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic c
 	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1041)
 	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1017)
 	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:937)
+2018-05-22 19:55:44 jdbc[3]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:197)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:137)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:103)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:117)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:123)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:365)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:194)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:460)
+	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:699)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:685)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	... 19 more
