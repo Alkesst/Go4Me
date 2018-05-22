@@ -51,12 +51,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 
         // Crear usuario por defecto
+        Localization test = new Localization("Boulevar Pasteur S/N", "Málaga", "Spain", 29010);
+        User testUser = new User(0.0, 0, "Ernesto", "director@uma.es", new ArrayList<>(), 0, "@Ernesto", test, new ArrayList<>(),
+                "$2a$04$mhVuX7/zGzhPu7xKCrqY8e7M0RkORqZ4QB/4rCEgYQNddyt1mAKZK");
         Localization local = new Localization("calle generica", "ciudad genérica", "pais generico", 7);
         User user = new User(0.0,0,"paco","paco@gmail.com",new ArrayList<>(),
                 0,"@paco", local, new ArrayList<>(),
                 "$2a$04$mhVuX7/zGzhPu7xKCrqY8e7M0RkORqZ4QB/4rCEgYQNddyt1mAKZK");
         Localization local2 = new Localization("calle", "ciudad", "pais", 7);
-        user.setId(10L);
         User user2 = new User(5.0, 0, "pepe", "pepe@uma.es", new ArrayList<>(),
                 0, "@pepe", local2, new ArrayList<>(),
                 "$2a$04$/p9SxKa0PtQjO3Oa649E9uPxLemqprhf05ak9lAX0kvd29znwEhhO");
@@ -65,6 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // https://www.dailycred.com/article/bcrypt-calculator
         userRepository.save(user);
         userRepository.save(user2);
+        userRepository.save(testUser);
     }
 
     /*
