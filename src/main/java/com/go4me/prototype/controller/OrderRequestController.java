@@ -50,6 +50,12 @@ public class OrderRequestController {
         return "orderpanel";
     }
 
+    @PostMapping("/order/{id}")
+    public RedirectView deleteOrder(@Valid OrderRequest order, Model model){
+        orderService.deleteOrder(order);
+        return new RedirectView("/searchorders");
+    }
+
     @PostMapping("/neworder")
     public RedirectView registerNewUser(@Valid OrderRequest neworder, BindingResult result, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -17,20 +17,20 @@ public class OrderService{
     }
 
     public void update(OrderRequest orderRequest){
-    OrderRequest o = repository.getOne(orderRequest.getID());
+        OrderRequest o = repository.getOne(orderRequest.getID());
 
-    o.setDay(orderRequest.getDay());
-    o.setHour(orderRequest.getHour());
-    o.setMonth(orderRequest.getMonth());
-    o.setPublishedBy(orderRequest.getPublishedBy());
-    o.setDescription(orderRequest.getDescription());
-    o.setMaxCost(orderRequest.getMaxCost());
+        o.setDay(orderRequest.getDay());
+        o.setHour(orderRequest.getHour());
+        o.setMonth(orderRequest.getMonth());
+        o.setPublishedBy(orderRequest.getPublishedBy());
+        o.setDescription(orderRequest.getDescription());
+        o.setMaxCost(orderRequest.getMaxCost());
 
-    repository.saveAndFlush(o);
-  }
+        repository.saveAndFlush(o);
+    }
 
-  public void delete(OrderRequest order){
-
+  public void deleteOrder(OrderRequest order){
+        repository.delete(order);
   }
 
   public boolean timeout(OrderRequest order){
