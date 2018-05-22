@@ -15,8 +15,12 @@ public class UserService {
     PasswordEncoder passwordEncoder;
 
     public void register(User user) {
-    	user.setPassword(passwordEncoder.encode(user.getPassword()));
+    	user.setPassword(this.cypherPassword(user.getPassword()));
     	this.add(user);
+    }
+
+    public String cypherPassword(String password){
+        return passwordEncoder.encode(password);
     }
 
     public List<User> getAll(){

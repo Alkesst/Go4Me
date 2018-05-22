@@ -1,5 +1,6 @@
 # Go4Me
-```A WebApp for lazy people (or handicapped people)```
+```What is Go4Me?
+Go4Me is a web app which main target is to order errands to other users and pay them for bringing them to your home.```
 
 
 
