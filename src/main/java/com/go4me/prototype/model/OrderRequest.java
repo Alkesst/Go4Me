@@ -11,7 +11,7 @@ public class OrderRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User publishedBy;
 
     @Column(nullable=false)

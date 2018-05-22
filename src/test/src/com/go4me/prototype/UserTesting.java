@@ -1,3 +1,5 @@
+package com.go4me.prototype;
+
 import com.go4me.prototype.model.User;
 import com.go4me.prototype.model.UserRepository;
 import com.go4me.prototype.model.UserService;
@@ -19,6 +21,7 @@ public class UserTesting {
 
     private static final double RATING_CHANGE = 1.5;
     private static final String PASSWORD = "hola123";
+    private static final double DELTA = 0.01;
 
     @MockBean
     UserRepository userRepository;
@@ -35,7 +38,7 @@ public class UserTesting {
     public void userRatingTest(){
         User user = new User();
         user.setRating(RATING_CHANGE);
-        assertEquals( RATING_CHANGE, (double) user.getRating());
+        assertEquals( RATING_CHANGE, user.getRating(), DELTA);
     }
 
     @Test

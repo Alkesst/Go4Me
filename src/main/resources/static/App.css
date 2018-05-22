@@ -87,7 +87,7 @@
 }
 
 .go4me-stock {
-    background: url(/images/7.jpg) no-repeat center;
+    background: url(/images/7.jpg) no-repeat;
     background-size: cover;
     height: calc(100vh - 200px);
     margin-top: -30px;
