@@ -20,10 +20,10 @@ public class OrderRequest {
     @Column(nullable=false)
     private double maxCost;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User buyer;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User seller;
 
     @Column

@@ -12,6 +12,9 @@ public class OrderService{
   @Autowired
   OrderRepository repository;
 
+  @Autowired
+  UserRepository userService;
+
     public List<OrderRequest> getAll(){
         return repository.findAll();
     }
@@ -29,12 +32,12 @@ public class OrderService{
         repository.saveAndFlush(o);
     }
 
-  /* TODO Fix assign order
-  public void assignOrder(OrderRequest order, User user){
+  public void assignOrder(OrderRequest order, Long id){
+        User user = userService.getOne(id);
         order.setBuyer(user);
         order.setSeller(order.getPublishedBy());
         repository.saveAndFlush(order);
-  }*/
+  }
 
   public boolean timeout(OrderRequest order){
     java.util.Date currentDate= new Date();
@@ -87,7 +90,9 @@ public class OrderService{
      }
      return month;
    }
-   public void add(OrderRequest orderRequest){
+   public void add(OrderRequest orderRequest, Long id){
+        User user = userService.getOne(id);
+        orderRequest.setPublishedBy(user);
     repository.saveAndFlush(orderRequest);
   }
 

@@ -23,10 +23,10 @@
         <form th:if="${isMyOrder}" th:action="@{'/order/' + ${Order.getID()}}" method="POST">
             <button type="submit" class="btn button-go4me col-sm-3">Delete Order!</button>
         </form>
-        <!--form th:if="${!isMyOrder}" th:action="@{'/searchorders'}" method="POST">
+        <form th:if="${!isMyOrder && !isAssigned}" th:action="@{'/searchorders/?id=' + ${Order.getID()}}" method="POST">
             <button type="submit" class="btn button-go4me col-sm-3">Assign Order!</button>
-        </form> TODO Fix assign order
-        <!--a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a-->
+        </form>
+        <a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a>
         <div class="container row card text-black container-background card-panel mb-5">
             <div class="card-body col-auto">
                 <div class="card-title ">ID</div>
@@ -39,8 +39,13 @@
             </div>
             <div class="card-body col-auto">
                 <div class="card-title">Assigned to</div>
-                <a th:text="${Order.getBuyer() != null} ? ${Order.getBuyer().getUserName()} : 'Nobody'"
-                   class="card-text"></a>
+                <div th:if="${Order.getBuyer() != null}">
+                    <a th:text="${Order.getBuyer().getUserName()}"
+                       class="card-text" th:href="'/profile/' + ${Order.getBuyer().getUserName()}"></a>
+                </div>
+                <div th:if="${Order.getBuyer() == null}">
+                    Nobody
+                </div>
             </div>
             <div class="card-body col-auto">
                 <div class="card-title ">Hour</div>

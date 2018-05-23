@@ -27,7 +27,7 @@ public class ApplicationPrototype {
            OrderRequest order = new OrderRequest(jesuspa98, "Esto es una prueba de puta madre socio",
                    15, 15, "May", "17:40");
            order.setId(1L);
-           orderService.add(order);
+           orderService.add(order, jesuspa98.getId());
         };
     }
     

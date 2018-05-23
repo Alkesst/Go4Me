@@ -46,7 +46,8 @@ public class OrderRequestController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         OrderRequest order = orderService.getOrderById(id);
         model.addAttribute("isMyOrder", order.getPublishedBy().getUserName().equals(user.getUserName()));
-        model.addAttribute("Order", orderService.getOrderById(id));
+        model.addAttribute("Order", order);
+        model.addAttribute("isAssigned", order.getBuyer() != null);
         return "orderpanel";
     }
 
@@ -56,19 +57,20 @@ public class OrderRequestController {
         return new RedirectView("/searchorders");
     }
 
-    /*TODO Fix assign user
-    @PostMapping("/searchorders")
-    public RedirectView assignOrder(@Valid OrderRequest order, @Valid User user, Model model){
-        orderService.assignOrder(order, user);
+
+    @PostMapping("/searchorders/")
+    public RedirectView assignOrder(@Valid OrderRequest order,
+                                    @RequestParam(name="id", required=false, defaultValue="empty") String id, Model model){
+        org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) auth.getPrincipal();
+        orderService.assignOrder(orderService.getOrderById(Long.parseLong(id)), user.getId());
         return new RedirectView("/searchorders");
-    }*/
+    }
 
     @PostMapping("/neworder")
     public RedirectView registerNewUser(@Valid OrderRequest neworder, BindingResult result, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        neworder.setPublishedBy(user);
-        neworder.setBuyer(user);
-        orderService.add(neworder);
+        orderService.add(neworder, user.getId());
         model.addAttribute("create", true);
         return new RedirectView("/order/" + neworder.getID());
     }
