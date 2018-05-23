@@ -17,56 +17,63 @@
 <div th:replace="/base/baseapp :: header" class="App-header">...</div>
 <div th:replace="/base/baseapp :: nav" class="App-header">...</div>
 <div class="container">
-    <a class="btn button-go4me" th:href="@{/searchorders}">Back!</a>
-    <div style="margin-right: auto">
-        <h1 class="text-center">Order Info</h1>
-        <form th:if="${isMyOrder}" th:action="@{'/order/' + ${Order.getID()}}" method="POST">
-            <button type="submit" class="btn button-go4me col-sm-3">Delete Order!</button>
+    <div class="btn-group mb-5">
+        <a class="btn button-go4me" th:href="@{/searchorders}">Back!</a>
+        <form class="btn-group" th:if="${isMyOrder}" th:action="@{'/order/' + ${Order.getID()}}" method="POST">
+            <button type="submit" class="btn button-go4me">Delete Order!</button>
         </form>
-        <form th:if="${!isMyOrder && !isAssigned}" th:action="@{'/searchorders/?id=' + ${Order.getID()}}" method="POST">
-            <button type="submit" class="btn button-go4me col-sm-3">Assign Order!</button>
+        <form class="btn-group" th:if="${!isMyOrder && !isAssigned}" th:action="@{'/searchorders/?id=' + ${Order.getID()}}" method="POST">
+            <button type="submit" class="btn button-go4me">Assign Order!</button>
         </form>
-        <a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me col-sm-3">Edit Order!</a>
-        <div class="container row card text-black container-background card-panel mb-5">
-            <div class="card-body col-auto">
-                <div class="card-title ">ID</div>
-                <div th:text="${Order.getID()}" class="card-text"></div>
-            </div>
-            <div class="card-body col-auto">
-                <div class="card-title ">Published By</div>
-                <a th:text="${Order.getPublishedBy().getUserName()}" class="card-text"
-                   th:href="@{'/profile/' + ${Order.getPublishedBy().getUserName()}}"></a>
-            </div>
-            <div class="card-body col-auto">
-                <div class="card-title">Assigned to</div>
-                <div th:if="${Order.getBuyer() != null}">
-                    <a th:text="${Order.getBuyer().getUserName()}"
-                       class="card-text" th:href="'/profile/' + ${Order.getBuyer().getUserName()}"></a>
+        <a th:href="@{'/order/' + ${Order.getID()} + '/config'}" th:if="${isMyOrder}" class="btn button-go4me">Edit Order!</a>
+    </div>
+    <div class="row bg-dark text-white"  style="border-radius: 21px 21px 21px 21px">
+        <div class="col-md-12 pt-3 px-3 pt-md-5 pb-md-5 px-md-5">
+            <h3>Order Info</h3>
+            <div class="row">
+                <div class="col-md-4 row">
+                    <div class="col-auto">ID:</div>
+                    <div th:text="${Order.getID()}" class="card-text col-auto"></div>
                 </div>
-                <div th:if="${Order.getBuyer() == null}">
-                    Nobody
+                <div class="col-md-4 row">
+                    <div class="col-auto">Published by:</div>
+                    <a th:text="${Order.getPublishedBy().getUserName()}" class="link"
+                       th:href="@{'/profile/' + ${Order.getPublishedBy().getUserName()}}"></a>
                 </div>
+                <div class="col-md-4 row mb-2">
+                    <div class="col-auto">Assigned to:</div>
+                    <div th:if="${Order.getBuyer() != null}">
+                        <a th:text="${Order.getBuyer().getUserName()}"
+                           class="link" th:href="'/profile/' + ${Order.getBuyer().getUserName()}"></a>
+                    </div>
+                    <div th:if="${Order.getBuyer() == null}">
+                        Nobody
+                    </div>
+                </div>
+                <div class="col-md-4 row">
+                    <div class="col-auto">Hour:</div>
+                    <div th:text="${Order.getHour()}" class="card-text col-auto"></div>
+                </div>
+                <div class="col-md-4 row">
+                    <div class="col-auto">Day:</div>
+                    <div th:text="${Order.getDay()}" class="card-text col-auto"></div>
+                </div>
+                <div class="col-md-4 row mb-2">
+                    <div class="col-auto">Month:</div>
+                    <div th:text="${Order.getMonth()}" class="card-text col-auto"></div>
+                </div>
+                <div class="col-md-4 row">
+                    <div class="col-auto">Cost:</div>
+                    <div th:text="${Order.getMaxCost()}" class="card-text col-auto"></div>
+                </div>
+                <div class="col-md-4 row">
+                    <div class="col-auto">Description:</div>
+                    <div th:text="${Order.getDescription()}" class="card-text col-auto"></div>
+                </div>
+
             </div>
-            <div class="card-body col-auto">
-                <div class="card-title ">Hour</div>
-                <div th:text="${Order.hour}" class="card-text"></div>
-            </div>
-            <div class="card-body col-auto">
-            <div class="card-title ">Day</div>
-            <div th:text="${Order.day}" class="card-text"></div>
-            </div>
-            <div class="card-body col-auto">
-                <div class="card-title ">Month</div>
-                <div th:text="${Order.month}" class="card-text"></div>
-            </div>
-            <div class="card-body col-auto">
-                <div class="card-title ">Max Cost</div>
-                <div th:text="${Order.maxCost}" class="card-text"></div>
-            </div>
-            <div class="card-body col-auto">
-                <div class="card-title ">Description</div>
-                <div th:text="${Order.description}" class="card-text"></div>
-            </div>
+        </div>
+        <div class="card-body col-auto">
         </div>
     </div>
 </div>

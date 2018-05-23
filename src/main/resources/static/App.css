@@ -19,6 +19,13 @@
     background: #A7FFEB;
 }
 
+.link{
+    color: #00BFA5;
+}
+
+.link:hover{
+    color: #128875;
+}
 /*
  * BUTTONS
  */
