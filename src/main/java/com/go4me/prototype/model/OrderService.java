@@ -107,4 +107,13 @@ public class OrderService{
   public OrderRequest getOrderById(long id){
     return repository.getOne(id);
   }
+
+  public void verifyUsers(OrderRequest order, User user, User buyer, User seller) {
+          if (user.getUserName().equals(buyer.getUserName()) && order.isVerifiedByBuyer() == 0) {
+              order.setVerifiedByBuyer(1);
+          } else if (user.getUserName().equals(seller.getUserName()) && order.isVerifiedBySeller() == 0) {
+              order.setVerifiedBySeller(1);
+          }
+      repository.saveAndFlush(order);
+  }
 }
