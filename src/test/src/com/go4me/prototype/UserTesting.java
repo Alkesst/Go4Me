@@ -46,7 +46,7 @@ public class UserTesting {
         user.setRating(INITIAL_RATING);
         user.setUserName(USERNAME);
         user.setTwitterAccount(TWITTER_ACC);
-        //user.setId(ID);
+        user.setId(ID);
     }
 
     @MockBean
@@ -94,11 +94,6 @@ public class UserTesting {
         assertEquals(user, resultUser3);
     }
 
-    @Test
-    public void testUpdateUser(){
-        userService.update(user);
-        verify(userRepository, times(1)).saveAndFlush(user);
-    }
 
     @Test
     public void testDeleteUser(){
