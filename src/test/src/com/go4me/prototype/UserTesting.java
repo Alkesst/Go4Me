@@ -103,6 +103,7 @@ public class UserTesting {
 
     @Test
     public void testGetAllUsers(){
+        when(userRepository.findAll()).thenReturn(new ArrayList<>());
         List<User> allUsers = userService.getAll();
         verify(userRepository, times(1)).findAll();
         assertEquals(new ArrayList<>(), allUsers);
