@@ -36,27 +36,27 @@ public class ApplicationPrototype {
             /**
              * Usuarios
              */
-            User jesuspa98 = new User(12.0, 0, "JesusPa98", "jesuspa98@Go4Me.com", new ArrayList<>(),
+            User jesuspa98 = new User(12.0, 0, "JesusPa98", "jesuspa98@Go4Me.org", new ArrayList<>(),
                     0, "@JesusPa", localizationJesusPa, new ArrayList<>(), "Go4Me");
             jesuspa98.setNumberOfRatings(3);
 
-            User alkesst = new User(13.0, 0, "Alkesst", "alkesst@Go4Me.com", new ArrayList<>(),
+            User alkesst = new User(13.0, 0, "Alkesst", "alkesst@Go4Me.org", new ArrayList<>(),
                     0, "@Alkesst", localizationAlkesst, new ArrayList<>(), "Go4Me");
             alkesst.setNumberOfRatings(3);
 
-            User daXneX = new User(14.0, 0, "DaXneX", "daXneX@Go4Me.com", new ArrayList<>(),
+            User daXneX = new User(14.0, 0, "DaXneX", "daXneX@Go4Me.org", new ArrayList<>(),
                     0, "@DaXneX", localizationRaul, new ArrayList<>(), "Go4Me");
             daXneX.setNumberOfRatings(3);
 
-            User erMegi = new User(12.0, 0, "ErMegi", "erMegi@Go4Me.com", new ArrayList<>(),
+            User erMegi = new User(12.0, 0, "ErMegi", "erMegi@Go4Me.org", new ArrayList<>(),
                     0, "@ErMegi", localizationMegias, new ArrayList<>(), "Go4Me");
             erMegi.setNumberOfRatings(3);
 
-            User manu = new User(13.0, 0, "Alpargata17", "alpargata17@Go4Me.com", new ArrayList<>(),
+            User manu = new User(13.0, 0, "Alpargata17", "alpargata17@Go4Me.org", new ArrayList<>(),
                     0, "@Alpargata17", localizationManu, new ArrayList<>(), "Go4Me");
             manu.setNumberOfRatings(3);
 
-            User gallego = new User(14.0, 0, "PulpoGallego", "pulpogallego@Go4Me.com", new ArrayList<>(),
+            User gallego = new User(14.0, 0, "PulpoGallego", "pulpogallego@Go4Me.org", new ArrayList<>(),
                     0, "@PulpoGallego", localizationPedro, new ArrayList<>(), "Go4Me");
             gallego.setNumberOfRatings(3);
 
